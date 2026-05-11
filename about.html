@@ -3,89 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About BLIZCITY and MoonkhidMusic — Afro Pop and Afro Dancehall artist from Benin City, Nigeria.">
+<meta name="keywords" content="BLIZCITY, MoonkhidMusic, About, Afro Pop, Nigerian Artist, Benin City">
 <title>BLIZCITY — About</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#D4A843;--gold-light:#F0C96A;--gold-dim:rgba(212,168,67,0.15);--cream:#F5F0E8;--dark:#080808;--dark2:#101010;--dark3:#181818;--text-muted:rgba(245,240,232,0.45);--text-mid:rgba(245,240,232,0.7);}
+:root{--blue:#050D1A;--blue2:#0A1628;--blue3:#0D1F3C;--blue4:#162847;--accent:#4A90D9;--accent-light:#7AB3E8;--accent-dim:rgba(74,144,217,0.15);--white:#FFFFFF;--cream:#F0F4FF;--text-muted:rgba(255,255,255,0.45);--text-mid:rgba(255,255,255,0.7);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
-::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--dark);}::-webkit-scrollbar-thumb{background:var(--gold);}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(8,8,8,0.96);border-bottom:1px solid rgba(212,168,67,0.12);backdrop-filter:blur(12px);}
-.nav-logo{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:5px;color:var(--gold);text-decoration:none;}
+body{background:var(--blue);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--blue);}::-webkit-scrollbar-thumb{background:var(--accent);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(5,13,26,0.97);border-bottom:1px solid rgba(74,144,217,0.15);backdrop-filter:blur(12px);}
+.nav-logo{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:5px;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
 .nav-links{display:flex;gap:40px;list-style:none;}
 .nav-links a{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
-.nav-cta{padding:10px 28px;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background 0.2s,color 0.2s;}
-.nav-cta:hover{background:var(--gold);color:var(--dark);}
-.page-hero{padding:140px 60px 80px;background:var(--dark2);border-bottom:1px solid rgba(212,168,67,0.1);}
-.page-hero-inner{max-width:1280px;margin:0 auto;}
-.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
-.section-label::after{content:'';display:block;width:40px;height:1px;background:var(--gold);}
-.page-title{font-family:'Anton',sans-serif;font-size:clamp(60px,10vw,120px);letter-spacing:4px;line-height:0.9;color:var(--cream);}
-.page-title span{display:block;-webkit-text-stroke:1.5px rgba(245,240,232,0.15);color:transparent;}
-.page-subtitle{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--gold);margin-top:24px;}
-.btn-gold{padding:16px 40px;background:var(--gold);color:var(--dark);font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:background 0.2s,transform 0.2s;display:inline-block;}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
-.btn-ghost{padding:16px 40px;background:transparent;color:var(--cream);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(245,240,232,0.2);transition:border-color 0.2s;display:inline-block;}
-.btn-ghost:hover{border-color:var(--cream);}
+.nav-links a:hover,.nav-links a.active{color:var(--accent-light);}
+.nav-cta{padding:10px 28px;border:1px solid var(--accent);color:var(--accent);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.nav-cta:hover{background:var(--accent);color:var(--white);}
+.page-hero{padding:140px 60px 80px;background:var(--blue2);border-bottom:1px solid rgba(74,144,217,0.1);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(74,144,217,0.08) 0%,transparent 70%);}
+.page-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2;}
+.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent-light);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.section-label::after{content:'';display:block;width:40px;height:1px;background:var(--accent);}
+.page-title{font-family:'Anton',sans-serif;font-size:clamp(60px,10vw,120px);letter-spacing:4px;line-height:0.9;color:var(--white);}
+.page-title span{display:block;-webkit-text-stroke:1.5px rgba(255,255,255,0.1);color:transparent;}
+.page-subtitle{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--accent-light);margin-top:24px;}
+.btn-accent{padding:16px 40px;background:var(--accent);color:var(--white);font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;display:inline-block;}
+.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);}
+.btn-ghost{padding:16px 40px;background:transparent;color:var(--white);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.2);transition:all 0.2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--accent-light);color:var(--accent-light);}
 /* STORY */
-.story{padding:100px 60px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;}
-.story-quote{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-style:italic;line-height:1.4;color:var(--cream);margin-bottom:32px;}
-.story-quote em{color:var(--gold);font-style:normal;}
-.story-body{font-size:16px;line-height:1.9;color:var(--text-muted);margin-bottom:24px;}
-.story-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
-.tag{padding:8px 20px;border:1px solid rgba(212,168,67,0.25);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);transition:background 0.2s;}
-.tag:hover{background:var(--gold-dim);}
-.story-img{background:var(--dark3);border:1px solid rgba(212,168,67,0.12);padding:40px;position:relative;display:flex;align-items:center;justify-content:center;min-height:500px;}
-.story-img::before{content:'';position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:1px solid rgba(212,168,67,0.08);pointer-events:none;}
-.story-big-num{font-family:'Anton',sans-serif;font-size:140px;line-height:1;color:rgba(212,168,67,0.06);position:absolute;bottom:20px;right:24px;letter-spacing:-4px;user-select:none;}
-.story-facts{display:flex;flex-direction:column;gap:28px;width:100%;}
-.fact-item{display:flex;align-items:flex-start;gap:20px;padding-bottom:28px;border-bottom:1px solid rgba(245,240,232,0.06);}
+.story{padding:100px 60px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.story-quote{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-style:italic;line-height:1.5;color:var(--white);margin-bottom:24px;}
+.story-quote em{color:var(--accent-light);font-style:normal;}
+.story-body{font-size:15px;line-height:1.9;color:var(--text-muted);margin-bottom:20px;}
+.story-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;margin-bottom:32px;}
+.tag{padding:8px 20px;border:1px solid rgba(74,144,217,0.3);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-light);transition:background 0.2s;}
+.tag:hover{background:var(--accent-dim);}
+.story-visual{background:var(--blue3);border:1px solid rgba(74,144,217,0.15);padding:48px;position:relative;}
+.story-visual::before{content:'';position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:1px solid rgba(74,144,217,0.08);pointer-events:none;}
+.story-moon{font-size:100px;text-align:center;margin-bottom:32px;animation:moonFloat 6s ease-in-out infinite;}
+@keyframes moonFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+.story-facts{display:flex;flex-direction:column;gap:24px;}
+.fact-item{display:flex;align-items:flex-start;gap:20px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);}
 .fact-item:last-child{border-bottom:none;padding-bottom:0;}
-.fact-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
-.fact-title{font-weight:500;font-size:15px;margin-bottom:4px;color:var(--cream);}
+.fact-icon{font-size:24px;flex-shrink:0;}
+.fact-title{font-weight:600;font-size:14px;margin-bottom:4px;color:var(--white);}
 .fact-desc{font-size:13px;color:var(--text-muted);line-height:1.6;}
 /* STATS */
-.stats-bar{background:var(--gold);padding:60px;}
+.stats-bar{background:var(--accent);padding:60px;}
 .stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
-.stat-num{font-family:'Anton',sans-serif;font-size:48px;letter-spacing:2px;color:var(--dark);line-height:1;}
-.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(8,8,8,0.6);margin-top:8px;}
+.stat-num{font-family:'Anton',sans-serif;font-size:48px;letter-spacing:2px;color:var(--white);line-height:1;}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:8px;}
 /* MISSION */
-.mission{padding:100px 60px;background:var(--dark2);}
+.mission{padding:100px 60px;background:var(--blue2);}
 .mission-inner{max-width:1280px;margin:0 auto;}
 .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
-.mission-card{background:var(--dark3);padding:48px 40px;border:1px solid rgba(212,168,67,0.08);transition:border-color 0.3s;}
-.mission-card:hover{border-color:rgba(212,168,67,0.3);}
+.mission-card{background:var(--blue3);padding:48px 40px;border:1px solid rgba(74,144,217,0.1);transition:border-color 0.3s;}
+.mission-card:hover{border-color:rgba(74,144,217,0.4);}
 .mission-icon{font-size:2.5rem;margin-bottom:24px;}
-.mission-title{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;color:var(--cream);margin-bottom:12px;}
+.mission-title{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;color:var(--white);margin-bottom:12px;}
 .mission-desc{font-size:14px;line-height:1.8;color:var(--text-muted);}
-/* TEAM */
-.team{padding:100px 60px;max-width:1280px;margin:0 auto;}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;}
-.team-card{background:var(--dark2);border:1px solid rgba(212,168,67,0.1);padding:32px 24px;text-align:center;transition:border-color 0.3s;}
-.team-card:hover{border-color:var(--gold);}
-.team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--dark3));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid rgba(212,168,67,0.3);}
-.team-name{font-family:'Anton',sans-serif;font-size:16px;letter-spacing:2px;color:var(--cream);margin-bottom:4px;}
-.team-role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
-.team-bio{font-size:13px;color:var(--text-muted);line-height:1.6;margin-top:12px;}
+/* LABEL */
+.label-section{padding:100px 60px;max-width:1280px;margin:0 auto;}
+.label-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.label-card{background:var(--blue2);border:1px solid rgba(74,144,217,0.15);padding:32px;transition:all 0.3s;}
+.label-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.label-num{font-family:'Anton',sans-serif;font-size:3rem;color:rgba(74,144,217,0.2);line-height:1;margin-bottom:16px;}
+.label-title{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:2px;color:var(--white);margin-bottom:8px;}
+.label-desc{font-size:14px;color:var(--text-muted);line-height:1.7;}
 /* CTA */
-.cta-band{background:var(--gold);padding:80px 60px;text-align:center;}
-.cta-title{font-family:'Anton',sans-serif;font-size:clamp(36px,5vw,60px);letter-spacing:3px;color:var(--dark);margin-bottom:16px;}
-.cta-sub{font-size:16px;color:rgba(8,8,8,0.6);margin-bottom:40px;}
-.btn-dark{padding:16px 40px;background:var(--dark);color:var(--gold);font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:background 0.2s;display:inline-block;border:1px solid var(--dark);}
-.btn-dark:hover{background:var(--dark2);}
-footer{background:var(--dark2);border-top:1px solid rgba(212,168,67,0.1);padding:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
-.footer-logo-big{font-family:'Anton',sans-serif;font-size:32px;letter-spacing:6px;color:var(--gold);}
+.cta{background:var(--accent);padding:80px 60px;text-align:center;}
+.cta h2{font-family:'Anton',sans-serif;font-size:clamp(36px,5vw,60px);letter-spacing:3px;color:var(--white);margin-bottom:16px;}
+.cta p{font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:40px;line-height:1.8;max-width:600px;margin-left:auto;margin-right:auto;}
+.btn-white{padding:16px 40px;background:var(--white);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:inline-block;margin:0 8px;}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px);}
+footer{background:var(--blue2);border-top:1px solid rgba(74,144,217,0.1);padding:60px;}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.footer-logo{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:5px;color:var(--white);}
+.footer-logo span{color:var(--accent);}
 .footer-tagline{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:6px;}
 .footer-links{display:flex;gap:32px;flex-wrap:wrap;}
 .footer-links a{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--gold);}
-.footer-copy{font-size:12px;color:var(--text-muted);text-align:right;}
+.footer-links a:hover{color:var(--accent-light);}
+.footer-social{display:flex;gap:16px;}
+.footer-social a{color:var(--text-muted);text-decoration:none;font-size:1.4rem;transition:color 0.2s;}
+.footer-social a:hover{color:var(--accent-light);}
+.footer-copy{max-width:1280px;margin:40px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy p{font-size:12px;color:var(--text-muted);}
+.footer-copy a{color:var(--accent-light);text-decoration:none;}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo">BLIZCITY</a>
+  <a href="index.html" class="nav-logo">BLIZ<span>CITY</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
@@ -94,7 +105,7 @@ footer{background:var(--dark2);border-top:1px solid rgba(212,168,67,0.1);padding
     <li><a href="messages.html">Messages</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="music.html" class="nav-cta">Listen Now</a>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-cta">Stream Now</a>
 </nav>
 
 <div class="page-hero">
@@ -105,64 +116,59 @@ footer{background:var(--dark2);border-top:1px solid rgba(212,168,67,0.1);padding
   </div>
 </div>
 
-<!-- STORY -->
 <div class="story">
   <div>
-    <p class="story-quote">"We don't just make music — we <em>build culture</em> and amplify voices that the world needs to hear."</p>
-    <p class="story-body">BLIZCITY was born from a simple but powerful belief: African music deserves a global stage. Founded in 2020, we set out to create a label that not only produces world-class music but champions the stories, struggles and triumphs of African artists.</p>
-    <p class="story-body">From our humble beginnings in a small studio to becoming one of Africa's most exciting independent labels, BLIZCITY has remained committed to one thing — authentic African sound with global reach. We blend Afrobeats, Afropop, Hip-Hop, R&B and traditional African sounds into something entirely new.</p>
-    <p class="story-body">Every track we release is a statement. Every artist we sign is a voice. Every beat we produce is a heartbeat of the continent. This is BLIZCITY — the Sound of New Era.</p>
+    <p class="story-quote">"We don't just make music — we build <em>culture</em> and amplify voices the world needs to hear."</p>
+    <p class="story-body">BLIZCITY is Africa's premier independent music label — founded on the belief that authentic African music deserves a global stage. We are the home of MoonkhidMusic and the Sound of New Era.</p>
+    <p class="story-body">From Benin City to the world — BLIZCITY blends Afro Pop, Afro Dancehall and the rich cultural heritage of Africa into a sound that is entirely new yet deeply rooted.</p>
+    <p class="story-body">Every track we release is a statement. Every artist we sign is a voice. Every beat we produce is a heartbeat of the continent. This is BLIZCITY.</p>
     <div class="story-tags">
-      <span class="tag">Afrobeats</span>
-      <span class="tag">Afropop</span>
-      <span class="tag">Hip-Hop</span>
-      <span class="tag">R&B</span>
-      <span class="tag">Amapiano</span>
-      <span class="tag">Afro-Soul</span>
+      <span class="tag">Afro Pop</span>
+      <span class="tag">Afro Dancehall</span>
+      <span class="tag">Nigeria</span>
+      <span class="tag">Africa</span>
+      <span class="tag">New Era</span>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="music.html" class="btn-accent">🎵 Our Music</a>
+      <a href="contact.html" class="btn-ghost">Get In Touch</a>
     </div>
   </div>
-  <div class="story-img">
+  <div class="story-visual">
+    <div class="story-moon">🌙</div>
     <div class="story-facts">
       <div class="fact-item">
         <div class="fact-icon">🎵</div>
         <div>
-          <div class="fact-title">Founded in 2020</div>
-          <div class="fact-desc">Started as an independent label with a dream to put African music on the global map.</div>
+          <div class="fact-title">Home of MoonkhidMusic</div>
+          <div class="fact-desc">BLIZCITY proudly represents MoonkhidMusic — rising Afro Pop and Afro Dancehall star from Benin City, Nigeria.</div>
         </div>
       </div>
       <div class="fact-item">
         <div class="fact-icon">🌍</div>
         <div>
           <div class="fact-title">Pan-African Vision</div>
-          <div class="fact-desc">Artists from Kenya, Nigeria, Ghana, Rwanda, South Africa and beyond — united under one roof.</div>
-        </div>
-      </div>
-      <div class="fact-item">
-        <div class="fact-icon">🏆</div>
-        <div>
-          <div class="fact-title">Award-Winning Sound</div>
-          <div class="fact-desc">Multiple nominations and wins at African music awards for production excellence and artist development.</div>
+          <div class="fact-desc">Rooted in Africa, built for the world — BLIZCITY music reaches listeners across every continent.</div>
         </div>
       </div>
       <div class="fact-item">
         <div class="fact-icon">🚀</div>
         <div>
-          <div class="fact-title">Global Distribution</div>
-          <div class="fact-desc">Our music is available on 40+ platforms worldwide, reaching listeners in over 80 countries.</div>
+          <div class="fact-title">Sincere — Out Now</div>
+          <div class="fact-desc">The debut single from MoonkhidMusic is available on all major streaming platforms worldwide.</div>
         </div>
       </div>
     </div>
-    <div class="story-big-num">2020</div>
   </div>
 </div>
 
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div><div class="stat-num">50+</div><div class="stat-label">Tracks Released</div></div>
-    <div><div class="stat-num">12</div><div class="stat-label">Artists Signed</div></div>
-    <div><div class="stat-num">1M+</div><div class="stat-label">Total Streams</div></div>
-    <div><div class="stat-num">80+</div><div class="stat-label">Countries Reached</div></div>
+    <div><div class="stat-num">1</div><div class="stat-label">Artist Signed</div></div>
+    <div><div class="stat-num">1</div><div class="stat-label">Single Released</div></div>
+    <div><div class="stat-num">🌍</div><div class="stat-label">Global Reach</div></div>
+    <div><div class="stat-num">∞</div><div class="stat-label">African Energy</div></div>
   </div>
 </div>
 
@@ -191,61 +197,60 @@ footer{background:var(--dark2);border-top:1px solid rgba(212,168,67,0.1);padding
   </div>
 </div>
 
-<!-- TEAM -->
-<div class="team">
-  <div class="section-label">The People</div>
-  <h2 style="font-family:'Anton',sans-serif;font-size:clamp(44px,6vw,72px);letter-spacing:3px;line-height:1;margin-bottom:20px;">MEET THE TEAM</h2>
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-avatar">👑</div>
-      <div class="team-name">BLIZ CEO</div>
-      <div class="team-role">Founder & CEO</div>
-      <p class="team-bio">Visionary leader and the architect of the BLIZCITY sound. Over 10 years in the African music industry.</p>
+<!-- LABEL FACTS -->
+<div class="label-section">
+  <div class="section-label">The Label</div>
+  <h2 style="font-family:'Anton',sans-serif;font-size:clamp(44px,6vw,72px);letter-spacing:3px;line-height:1;margin-bottom:20px;">WHY BLIZCITY</h2>
+  <div class="label-grid">
+    <div class="label-card">
+      <div class="label-num">01</div>
+      <div class="label-title">ARTIST DEVELOPMENT</div>
+      <p class="label-desc">We nurture raw African talent and transform it into world-class artistry. Our artists receive full creative, technical and business support.</p>
     </div>
-    <div class="team-card">
-      <div class="team-avatar">🎚️</div>
-      <div class="team-name">PROD. NOVA</div>
-      <div class="team-role">Head of Production</div>
-      <p class="team-bio">Grammy-nominated producer crafting the sonic identity of BLIZCITY across all genres and styles.</p>
+    <div class="label-card">
+      <div class="label-num">02</div>
+      <div class="label-title">WORLD CLASS PRODUCTION</div>
+      <p class="label-desc">Crafting sounds that blend traditional African roots with cutting-edge global production techniques — the BLIZCITY sound is unmistakable.</p>
     </div>
-    <div class="team-card">
-      <div class="team-avatar">🌍</div>
-      <div class="team-name">AMA CROSS</div>
-      <div class="team-role">A&R Director</div>
-      <p class="team-bio">Talent scout extraordinaire. Responsible for discovering and nurturing BLIZCITY's roster of artists.</p>
-    </div>
-    <div class="team-card">
-      <div class="team-avatar">📢</div>
-      <div class="team-name">KEMI RAY</div>
-      <div class="team-role">Marketing Director</div>
-      <p class="team-bio">Digital marketing maven driving BLIZCITY's global presence across all social and streaming platforms.</p>
+    <div class="label-card">
+      <div class="label-num">03</div>
+      <div class="label-title">GLOBAL DISTRIBUTION</div>
+      <p class="label-desc">From Spotify to Apple Music, YouTube to TikTok — we ensure BLIZCITY music reaches every corner of the globe.</p>
     </div>
   </div>
 </div>
 
-<!-- CTA -->
-<div class="cta-band">
-  <h2 class="cta-title">READY TO EXPERIENCE<br>THE SOUND?</h2>
-  <p class="cta-sub">Dive into the BLIZCITY catalogue and discover your next favourite artist.</p>
-  <a href="music.html" class="btn-dark">Explore Music</a>
+<!-- ARTIST SPOTLIGHT -->
+<div class="cta">
+  <h2>MEET MOONKHIDMUSIC</h2>
+  <p>BLIZCITY's first and rising star — MoonkhidMusic is bringing Afro Pop and Afro Dancehall to the world. Stream the debut single Sincere now.</p>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="btn-white">🎵 Stream Sincere</a>
+  <a href="music.html" class="btn-white" style="background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.4);">View All Music</a>
 </div>
 
 <footer>
-  <div>
-    <div class="footer-logo-big">BLIZCITY</div>
-    <div class="footer-tagline">Sound of New Era · The Label · The Movement</div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="music.html">Music</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="messages.html">Messages</a>
-    <a href="contact.html">Contact</a>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">BLIZ<span>CITY</span></div>
+      <div class="footer-tagline">Sound of New Era · The Label · The Movement</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="messages.html">Messages</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/moonkhid_x" target="_blank">📸</a>
+      <a href="https://www.tiktok.com/@moonkhidmusic" target="_blank">🎵</a>
+      <a href="mailto:Moonkhidmngt@gmail.com">📧</a>
+    </div>
   </div>
   <div class="footer-copy">
-    <div>© 2026 BLIZCITY. All Rights Reserved.</div>
-    <div style="margin-top:4px;font-size:11px;color:var(--text-muted);">The Home of Music · Built with passion</div>
+    <p>© 2026 BLIZCITY Music. All Rights Reserved.</p>
+    <p>Website by <a href="https://rayiecho.github.io" target="_blank">Regan Ayiecho</a></p>
   </div>
 </footer>
 </body>

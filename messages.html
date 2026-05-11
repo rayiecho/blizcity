@@ -3,296 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLIZCITY — Gallery</title>
+<meta name="description" content="BLIZCITY Fan Messages — Connect with MoonkhidMusic and the BLIZCITY community.">
+<title>BLIZCITY — Messages</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#D4A843;--gold-light:#F0C96A;--gold-dim:rgba(212,168,67,0.15);--cream:#F5F0E8;--dark:#080808;--dark2:#101010;--dark3:#181818;--text-muted:rgba(245,240,232,0.45);--text-mid:rgba(245,240,232,0.7);}
+:root{--blue:#050D1A;--blue2:#0A1628;--blue3:#0D1F3C;--accent:#4A90D9;--accent-light:#7AB3E8;--accent-dim:rgba(74,144,217,0.15);--white:#FFFFFF;--cream:#F0F4FF;--text-muted:rgba(255,255,255,0.45);--text-mid:rgba(255,255,255,0.7);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
-::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--dark);}::-webkit-scrollbar-thumb{background:var(--gold);}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(8,8,8,0.96);border-bottom:1px solid rgba(212,168,67,0.12);backdrop-filter:blur(12px);}
-.nav-logo{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:5px;color:var(--gold);text-decoration:none;}
+body{background:var(--blue);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--blue);}::-webkit-scrollbar-thumb{background:var(--accent);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(5,13,26,0.97);border-bottom:1px solid rgba(74,144,217,0.15);backdrop-filter:blur(12px);}
+.nav-logo{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:5px;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
 .nav-links{display:flex;gap:40px;list-style:none;}
 .nav-links a{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
-.nav-cta{padding:10px 28px;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background 0.2s,color 0.2s;}
-.nav-cta:hover{background:var(--gold);color:var(--dark);}
-.page-hero{padding:140px 60px 80px;background:var(--dark2);border-bottom:1px solid rgba(212,168,67,0.1);}
-.page-hero-inner{max-width:1280px;margin:0 auto;}
-.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
-.section-label::after{content:'';display:block;width:40px;height:1px;background:var(--gold);}
-.page-title{font-family:'Anton',sans-serif;font-size:clamp(60px,10vw,120px);letter-spacing:4px;line-height:0.9;color:var(--cream);}
-.page-title span{display:block;-webkit-text-stroke:1.5px rgba(245,240,232,0.15);color:transparent;}
-.page-subtitle{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--gold);margin-top:24px;}
-/* FILTERS */
-.filters{padding:60px 60px 0;max-width:1280px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
-.filter-btn{padding:10px 28px;background:transparent;border:1px solid rgba(212,168,67,0.2);color:var(--text-mid);font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.filter-btn:hover,.filter-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-/* MASONRY GRID */
-.gallery-section{padding:40px 60px 100px;max-width:1280px;margin:0 auto;}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.gallery-item{background:var(--dark3);border:1px solid rgba(212,168,67,0.08);overflow:hidden;position:relative;cursor:pointer;transition:border-color 0.3s;}
-.gallery-item:hover{border-color:rgba(212,168,67,0.4);}
-.gallery-item:hover .gallery-overlay{opacity:1;}
-.gallery-item.tall{grid-row:span 2;}
-.gallery-item.wide{grid-column:span 2;}
-.gallery-img{width:100%;height:100%;min-height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(135deg,var(--dark2),var(--dark3));}
-.gallery-overlay{position:absolute;inset:0;background:rgba(8,8,8,0.85);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;padding:24px;text-align:center;}
-.overlay-title{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:2px;color:var(--gold);margin-bottom:8px;}
-.overlay-desc{font-size:13px;color:var(--text-mid);line-height:1.6;}
-.overlay-tag{margin-top:16px;padding:6px 16px;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase;}
-/* VIDEO SECTION */
-.videos{padding:80px 60px;background:var(--dark2);}
-.videos-inner{max-width:1280px;margin:0 auto;}
-.videos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:60px;}
-.video-card{background:var(--dark3);border:1px solid rgba(212,168,67,0.08);overflow:hidden;transition:border-color 0.3s;}
-.video-card:hover{border-color:rgba(212,168,67,0.3);}
-.video-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--dark),var(--dark3));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;cursor:pointer;}
-.play-btn{position:absolute;width:64px;height:64px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform 0.2s;}
-.play-btn:hover{transform:scale(1.1);}
-.video-info{padding:24px;}
-.video-title{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:2px;color:var(--cream);margin-bottom:8px;}
-.video-meta{font-size:12px;color:var(--text-muted);letter-spacing:1px;}
-/* BEHIND SCENES */
-.behind{padding:80px 60px;max-width:1280px;margin:0 auto;}
-.behind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:60px;}
-.behind-card{background:var(--dark2);border:1px solid rgba(212,168,67,0.08);padding:0;overflow:hidden;transition:border-color 0.3s;}
-.behind-card:hover{border-color:var(--gold);}
-.behind-img{height:200px;background:linear-gradient(135deg,var(--dark3),var(--dark));display:flex;align-items:center;justify-content:center;font-size:4rem;}
-.behind-info{padding:20px;}
-.behind-title{font-size:14px;font-weight:500;color:var(--cream);margin-bottom:4px;}
-.behind-date{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
-footer{background:var(--dark2);border-top:1px solid rgba(212,168,67,0.1);padding:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
-.footer-logo-big{font-family:'Anton',sans-serif;font-size:32px;letter-spacing:6px;color:var(--gold);}
+.nav-links a:hover,.nav-links a.active{color:var(--accent-light);}
+.nav-cta{padding:10px 28px;border:1px solid var(--accent);color:var(--accent);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.nav-cta:hover{background:var(--accent);color:var(--white);}
+.page-hero{padding:140px 60px 80px;background:var(--blue2);border-bottom:1px solid rgba(74,144,217,0.1);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(74,144,217,0.08) 0%,transparent 70%);}
+.page-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2;}
+.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent-light);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.section-label::after{content:'';display:block;width:40px;height:1px;background:var(--accent);}
+.page-title{font-family:'Anton',sans-serif;font-size:clamp(60px,10vw,120px);letter-spacing:4px;line-height:0.9;color:var(--white);}
+.page-title span{display:block;-webkit-text-stroke:1.5px rgba(255,255,255,0.1);color:transparent;}
+.page-subtitle{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--accent-light);margin-top:24px;}
+.messages-layout{padding:80px 60px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.feed-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;}
+.feed-title{font-family:'Anton',sans-serif;font-size:24px;letter-spacing:2px;color:var(--white);}
+.feed-count{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-light);}
+.msg-bubble{background:var(--blue2);border:1px solid rgba(74,144,217,0.1);padding:24px;margin-bottom:16px;transition:border-color 0.3s;}
+.msg-bubble:hover{border-color:rgba(74,144,217,0.3);}
+.msg-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.msg-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:14px;font-weight:700;color:var(--white);flex-shrink:0;}
+.msg-name{font-size:14px;font-weight:600;color:var(--white);}
+.msg-location{font-size:11px;letter-spacing:1px;color:var(--accent-light);}
+.msg-time{font-size:11px;color:var(--text-muted);margin-left:auto;}
+.msg-text{font-size:14px;line-height:1.7;color:var(--text-mid);margin-bottom:12px;}
+.msg-like{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:var(--text-muted);transition:color 0.2s;background:none;border:none;font-family:'DM Sans',sans-serif;}
+.msg-like:hover{color:var(--accent-light);}
+.msg-form-card{background:var(--blue2);border:1px solid rgba(74,144,217,0.2);padding:40px;position:sticky;top:100px;}
+.msg-form-title{font-family:'Anton',sans-serif;font-size:24px;letter-spacing:2px;color:var(--white);margin-bottom:6px;}
+.msg-form-sub{font-size:13px;color:var(--text-muted);margin-bottom:32px;line-height:1.6;}
+.form-field{margin-bottom:20px;}
+.form-field label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-light);margin-bottom:8px;}
+.form-field input,.form-field textarea,.form-field select{width:100%;background:var(--blue3);border:1px solid rgba(74,144,217,0.2);color:var(--white);padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--accent);}
+.form-field textarea{resize:vertical;min-height:120px;}
+.form-field select option{background:var(--blue3);}
+.btn-submit{width:100%;padding:16px;background:var(--accent);color:var(--white);font-family:'Anton',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s;}
+.btn-submit:hover{background:var(--accent-light);}
+.stats-bar{background:var(--accent);padding:60px;}
+.stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+.stat-num{font-family:'Anton',sans-serif;font-size:48px;letter-spacing:2px;color:var(--white);line-height:1;}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:8px;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+footer{background:var(--blue2);border-top:1px solid rgba(74,144,217,0.1);padding:60px;}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.footer-logo{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:5px;color:var(--white);}
+.footer-logo span{color:var(--accent);}
 .footer-tagline{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:6px;}
 .footer-links{display:flex;gap:32px;flex-wrap:wrap;}
 .footer-links a{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--gold);}
-.footer-copy{font-size:12px;color:var(--text-muted);text-align:right;}
+.footer-links a:hover{color:var(--accent-light);}
+.footer-social{display:flex;gap:16px;}
+.footer-social a{color:var(--text-muted);text-decoration:none;font-size:1.4rem;transition:color 0.2s;}
+.footer-social a:hover{color:var(--accent-light);}
+.footer-copy{max-width:1280px;margin:40px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy p{font-size:12px;color:var(--text-muted);}
+.footer-copy a{color:var(--accent-light);text-decoration:none;}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo">BLIZCITY</a>
+  <a href="index.html" class="nav-logo">BLIZ<span>CITY</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="music.html">Music</a></li>
-    <li><a href="gallery.html" class="active">Gallery</a></li>
-    <li><a href="messages.html">Messages</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="messages.html" class="active">Messages</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="music.html" class="nav-cta">Listen Now</a>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-cta">Stream Now</a>
 </nav>
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="section-label">Visual Story</div>
-    <h1 class="page-title">THE<span>GALLERY</span></h1>
-    <p class="page-subtitle">"Every image captures a moment. Every moment builds the legacy."</p>
+    <div class="section-label">Fan Community</div>
+    <h1 class="page-title">FAN<span>MESSAGES</span></h1>
+    <p class="page-subtitle">"Your voice is part of the BLIZCITY story."</p>
   </div>
 </div>
 
-<!-- FILTERS -->
-<div class="filters">
-  <button class="filter-btn active">All</button>
-  <button class="filter-btn">Studio</button>
-  <button class="filter-btn">Live Shows</button>
-  <button class="filter-btn">Artists</button>
-  <button class="filter-btn">Events</button>
-  <button class="filter-btn">Behind the Scenes</button>
-</div>
-
-<!-- GALLERY GRID -->
-<div class="gallery-section">
-  <div class="gallery-grid">
-    <div class="gallery-item tall">
-      <div class="gallery-img">🎤</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">LIVE IN LAGOS</div>
-        <div class="overlay-desc">BLIZCITY All Stars performing at the Lagos Music Festival 2025 to a crowd of 10,000+</div>
-        <div class="overlay-tag">Live Show</div>
+<div class="messages-layout">
+  <div>
+    <div class="feed-header">
+      <div class="feed-title">COMMUNITY FEED</div>
+      <div class="feed-count" id="feedCount">3 Messages</div>
+    </div>
+    <div id="msgFeed">
+      <div class="msg-bubble">
+        <div class="msg-meta">
+          <div class="msg-avatar" style="background:#4A90D9;">AO</div>
+          <div>
+            <div class="msg-name">Amara Osei</div>
+            <div class="msg-location">📍 Accra, Ghana</div>
+          </div>
+          <div class="msg-time">2 days ago</div>
+        </div>
+        <div class="msg-text">Sincere is on repeat! MoonkhidMusic is about to take over Africa. The sound is so fresh and real. BLIZCITY is the future! 🌙🔥</div>
+        <button class="msg-like" onclick="likeMsg(this)"><span>♡</span><span class="like-count">18</span> likes</button>
+      </div>
+      <div class="msg-bubble">
+        <div class="msg-meta">
+          <div class="msg-avatar" style="background:#1a5c8a;">NK</div>
+          <div>
+            <div class="msg-name">Nia Kamau</div>
+            <div class="msg-location">📍 Nairobi, Kenya</div>
+          </div>
+          <div class="msg-time">3 days ago</div>
+        </div>
+        <div class="msg-text">Finally an artist that speaks to the soul. Sincere gave me chills from the first listen. MoonkhidMusic is something special! 🎵🌙</div>
+        <button class="msg-like" onclick="likeMsg(this)"><span>♡</span><span class="like-count">32</span> likes</button>
+      </div>
+      <div class="msg-bubble">
+        <div class="msg-meta">
+          <div class="msg-avatar" style="background:#2d4a7a;">TA</div>
+          <div>
+            <div class="msg-name">Tunde Adeleke</div>
+            <div class="msg-location">📍 Lagos, Nigeria</div>
+          </div>
+          <div class="msg-time">5 days ago</div>
+        </div>
+        <div class="msg-text">Benin City representing! MoonkhidMusic is bringing our culture to the world. Sincere is a masterpiece. More music please! 🇳🇬🎶</div>
+        <button class="msg-like" onclick="likeMsg(this)"><span>♡</span><span class="like-count">45</span> likes</button>
       </div>
     </div>
-    <div class="gallery-item">
-      <div class="gallery-img">🎚️</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">STUDIO SESSION</div>
-        <div class="overlay-desc">Prod. Nova laying down beats for New Era Vol. 1 in our Nairobi studio</div>
-        <div class="overlay-tag">Studio</div>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img">🌍</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">AFRICA TOUR 2025</div>
-        <div class="overlay-desc">KJ Blaze connecting with fans across 6 African cities on the Africa Rising tour</div>
-        <div class="overlay-tag">Events</div>
-      </div>
-    </div>
-    <div class="gallery-item wide">
-      <div class="gallery-img">🎶</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">NEW ERA LAUNCH</div>
-        <div class="overlay-desc">The star-studded album launch event for New Era Vol. 1 in Kigali, Rwanda</div>
-        <div class="overlay-tag">Events</div>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img">👑</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">BLIZ CEO</div>
-        <div class="overlay-desc">Portrait session with BLIZCITY founder and CEO — the architect of the sound</div>
-        <div class="overlay-tag">Artists</div>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img">🎸</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">SOUND CHECK</div>
-        <div class="overlay-desc">Sola Wave and the band running sound checks before the Accra show</div>
-        <div class="overlay-tag">Behind the Scenes</div>
-      </div>
-    </div>
-    <div class="gallery-item tall">
-      <div class="gallery-img">🌺</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">AMARA</div>
-        <div class="overlay-desc">Official artist portrait of Amara, BLIZCITY's breakthrough Afro-Soul vocalist</div>
-        <div class="overlay-tag">Artists</div>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img">🔥</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">STUDIO VIBES</div>
-        <div class="overlay-desc">Late night recording session for the Midnight Sessions EP — pure creative energy</div>
-        <div class="overlay-tag">Studio</div>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img">⚡</div>
-      <div class="gallery-overlay">
-        <div class="overlay-title">NAIROBI SHOW</div>
-        <div class="overlay-desc">Electric atmosphere at the Nairobi leg of the New Era World Tour 2026</div>
-        <div class="overlay-tag">Live Show</div>
-      </div>
+  </div>
+  <div>
+    <div class="msg-form-card">
+      <div class="msg-form-title">LEAVE A MESSAGE</div>
+      <div class="msg-form-sub">Share your thoughts about MoonkhidMusic and BLIZCITY with the community!</div>
+      <form onsubmit="submitMessage(event)">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" id="msgName" placeholder="e.g. Amara Diallo" required>
+        </div>
+        <div class="form-field">
+          <label>Your Location</label>
+          <input type="text" id="msgLocation" placeholder="e.g. Lagos, Nigeria">
+        </div>
+        <div class="form-field">
+          <label>Subject</label>
+          <select id="msgSubject">
+            <option value="">Select...</option>
+            <option>Fan Message</option>
+            <option>About Sincere</option>
+            <option>Collaboration</option>
+            <option>Booking Inquiry</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Your Message</label>
+          <textarea id="msgText" placeholder="Share your love for the music..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="msgBtn">Send Message</button>
+      </form>
     </div>
   </div>
 </div>
 
-<!-- VIDEOS -->
-<div class="videos">
-  <div class="videos-inner">
-    <div class="section-label">Watch</div>
-    <h2 style="font-family:'Anton',sans-serif;font-size:clamp(44px,6vw,72px);letter-spacing:3px;line-height:1;margin-bottom:20px;">MUSIC VIDEOS</h2>
-    <div class="videos-grid">
-      <div class="video-card">
-        <div class="video-thumb">
-          🎵
-          <div class="play-btn">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">NEW ERA ANTHEM</div>
-          <div class="video-meta">Official Music Video · 2026 · 2.1M Views</div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb">
-          🌙
-          <div class="play-btn">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">MIDNIGHT IN LAGOS</div>
-          <div class="video-meta">Official Music Video · 2025 · 1.4M Views</div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb">
-          🌍
-          <div class="play-btn">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">AFRICA RISING</div>
-          <div class="video-meta">Official Music Video · 2024 · 980K Views</div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb">
-          🎤
-          <div class="play-btn">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">LIVE IN LAGOS — FULL SET</div>
-          <div class="video-meta">Live Performance · 2025 · 3.2M Views</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- BEHIND THE SCENES -->
-<div class="behind">
-  <div class="section-label">Backstage</div>
-  <h2 style="font-family:'Anton',sans-serif;font-size:clamp(44px,6vw,72px);letter-spacing:3px;line-height:1;margin-bottom:20px;">BEHIND THE SCENES</h2>
-  <div class="behind-grid">
-    <div class="behind-card">
-      <div class="behind-img">🎧</div>
-      <div class="behind-info">
-        <div class="behind-title">Mixing Session — New Era Vol. 1</div>
-        <div class="behind-date">March 2026</div>
-      </div>
-    </div>
-    <div class="behind-card">
-      <div class="behind-img">🚌</div>
-      <div class="behind-info">
-        <div class="behind-title">On the Road — Africa Tour</div>
-        <div class="behind-date">November 2025</div>
-      </div>
-    </div>
-    <div class="behind-card">
-      <div class="behind-img">🎬</div>
-      <div class="behind-info">
-        <div class="behind-title">Video Shoot — Midnight in Lagos</div>
-        <div class="behind-date">August 2025</div>
-      </div>
-    </div>
-    <div class="behind-card">
-      <div class="behind-img">🏆</div>
-      <div class="behind-info">
-        <div class="behind-title">Awards Night — African Music Awards</div>
-        <div class="behind-date">June 2025</div>
-      </div>
-    </div>
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><div class="stat-num">🌙</div><div class="stat-label">MoonkhidMusic</div></div>
+    <div><div class="stat-num">1</div><div class="stat-label">Single Out Now</div></div>
+    <div><div class="stat-num">🌍</div><div class="stat-label">Global Fans</div></div>
+    <div><div class="stat-num">∞</div><div class="stat-label">African Energy</div></div>
   </div>
 </div>
 
 <footer>
-  <div>
-    <div class="footer-logo-big">BLIZCITY</div>
-    <div class="footer-tagline">Sound of New Era · The Label · The Movement</div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="music.html">Music</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="messages.html">Messages</a>
-    <a href="contact.html">Contact</a>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">BLIZ<span>CITY</span></div>
+      <div class="footer-tagline">Sound of New Era · The Label · The Movement</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="messages.html">Messages</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/moonkhid_x" target="_blank">📸</a>
+      <a href="https://www.tiktok.com/@moonkhidmusic" target="_blank">🎵</a>
+      <a href="mailto:Moonkhidmngt@gmail.com">📧</a>
+    </div>
   </div>
   <div class="footer-copy">
-    <div>© 2026 BLIZCITY. All Rights Reserved.</div>
-    <div style="margin-top:4px;font-size:11px;color:var(--text-muted);">The Home of Music · Built with passion</div>
+    <p>© 2026 BLIZCITY Music. All Rights Reserved.</p>
+    <p>Website by <a href="https://rayiecho.github.io" target="_blank">Regan Ayiecho</a></p>
   </div>
 </footer>
 
 <script>
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
+function likeMsg(el){const count=el.querySelector('.like-count');const heart=el.querySelector('span');const n=parseInt(count.textContent);if(el.dataset.liked){count.textContent=n-1;heart.textContent='♡';heart.style.color='';delete el.dataset.liked;}else{count.textContent=n+1;heart.textContent='♥';heart.style.color='var(--accent-light)';el.dataset.liked='1';}}
+function submitMessage(e){
+  e.preventDefault();
+  const name=document.getElementById('msgName').value.trim();
+  const location=document.getElementById('msgLocation').value.trim();
+  const text=document.getElementById('msgText').value.trim();
+  if(!name||!text)return;
+  const initials=name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+  const colors=['#4A90D9','#1a5c8a','#2d4a7a','#0D1F3C','#162847'];
+  const color=colors[Math.floor(Math.random()*colors.length)];
+  const bubble=document.createElement('div');
+  bubble.className='msg-bubble';
+  bubble.style.cssText='animation:fadeIn 0.4s ease both;';
+  bubble.innerHTML=`<div class="msg-meta"><div class="msg-avatar" style="background:${color};">${initials}</div><div><div class="msg-name">${name}</div><div class="msg-location">📍 ${location||'Global'}</div></div><div class="msg-time">Just now</div></div><div class="msg-text">${text}</div><button class="msg-like" onclick="likeMsg(this)"><span>♡</span><span class="like-count">0</span> likes</button>`;
+  const feed=document.getElementById('msgFeed');
+  feed.insertBefore(bubble,feed.firstChild);
+  const count=document.getElementById('feedCount');
+  count.textContent=(parseInt(count.textContent)+1)+' Messages';
+  const btn=document.getElementById('msgBtn');
+  btn.textContent='✓ Message Sent!';
+  btn.style.background='#2d7a2d';
+  document.getElementById('msgName').value='';
+  document.getElementById('msgLocation').value='';
+  document.getElementById('msgText').value='';
+  document.getElementById('msgSubject').value='';
+  setTimeout(()=>{btn.textContent='Send Message';btn.style.background='';},3000);
+}
 </script>
 </body>
 </html>
