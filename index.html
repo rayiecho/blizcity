@@ -1,380 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="BLIZCITY — Africa's premier music label. Home of MoonkhidMusic. Stream Sincere now.">
-<meta name="keywords" content="BLIZCITY, MoonkhidMusic, Sincere, Afro Pop, Afro Dancehall, Nigerian Music, African Music Label, Benin City">
-<meta name="author" content="BLIZCITY Music Label">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="BLIZCITY — Sound of New Era">
-<meta property="og:description" content="Africa's premier music label. Home of MoonkhidMusic. Stream Sincere now.">
-<meta property="og:url" content="https://blizcity.com">
-<meta property="og:type" content="website">
-<title>BLIZCITY — Sound of New Era</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --blue:#0A2463;
-  --blue2:#0D2F7A;
-  --blue3:#1245A8;
-  --blue4:#1A56DB;
-  --accent:#1A56DB;
-  --accent-light:#4A90D9;
-  --accent-dim:rgba(26,86,219,0.12);
-  --white:#FFFFFF;
-  --cream:#F0F6FF;
-  --text-muted:rgba(255,255,255,0.82);
-  --text-mid:rgba(255,255,255,0.92);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--blue);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
-::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--cream);}::-webkit-scrollbar-thumb{background:var(--accent);}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoonkhidMusic — Afrobeats & Afropop artist from Benin City, Nigeria. Stream Sincere now on Spotify, Apple Music and more.">
+  <meta name="keywords" content="MoonkhidMusic, Moonkhid, Sincere, Afrobeats, Afropop, Nigerian artist, Blizcity, African music">
+  <meta property="og:title" content="MoonkhidMusic — Official Website">
+  <meta property="og:description" content="Stream Sincere — the debut single from MoonkhidMusic. Available on all platforms.">
+  <meta property="og:url" content="https://rayiecho.github.io/blizcity">
+  <meta property="og:type" content="website">
+  <title>MoonkhidMusic — Official</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0F0800;
+      --bg2:#1A0F00;
+      --bg3:#241500;
+      --gold:#D4A84B;
+      --gold2:#E8C97A;
+      --gold3:#F5E0A0;
+      --brown:#3D2000;
+      --cream:#F5ECD7;
+      --gray:#8A7A60;
+      --white:#FDFAF5;
+      --border:rgba(212,168,75,0.15);
+      --border2:rgba(212,168,75,0.08);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;transition:background 0.4s;background:rgba(255,255,255,0.97);border-bottom:2px solid #D6E8FF;backdrop-filter:blur(12px);}
-nav.scrolled{background:rgba(10,36,99,0.97);border-bottom:1px solid rgba(74,144,217,0.25);}
-.nav-logo{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:5px;color:var(--blue);text-decoration:none;transition:color 0.3s;}
-.nav-logo span{color:var(--accent);}
-nav.scrolled .nav-logo{color:var(--white);}
-nav.scrolled .nav-logo span{color:var(--accent-light);}
-.nav-links{display:flex;gap:40px;list-style:none;}
-.nav-links a{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);text-decoration:none;transition:color 0.2s;}
-nav.scrolled .nav-links a{color:rgba(255,255,255,0.82);}
-.nav-links a:hover,.nav-links a.active{color:var(--accent);}
-nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--accent-light);}
-.nav-cta{padding:10px 28px;border:2px solid var(--accent);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
-.nav-cta:hover{background:var(--accent);color:var(--white);}
-nav.scrolled .nav-cta{border-color:var(--accent-light);color:var(--accent-light);}
-nav.scrolled .nav-cta:hover{background:var(--accent-light);color:var(--white);}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(15,8,0,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
+    .nav-logo{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--gold);text-decoration:none;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{color:rgba(245,236,215,0.75);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.5px;transition:color 0.3s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-stream{background:var(--gold);color:var(--bg);padding:0.55rem 1.5rem;border-radius:2px;font-size:0.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+    .nav-stream:hover{background:var(--gold2);}
 
-/* HERO */
-.hero{min-height:100vh;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(74,144,217,0.18) 0%,transparent 60%),linear-gradient(135deg,var(--blue) 0%,var(--blue3) 100%);}
-.stars{position:absolute;inset:0;}
-.star{position:absolute;background:var(--white);border-radius:50%;animation:twinkle 3s ease-in-out infinite;}
-@keyframes twinkle{0%,100%{opacity:0.15}50%{opacity:1}}
-.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:120px 60px 80px;position:relative;z-index:2;}
-.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A8CAFF;margin-bottom:32px;}
-.hero-tag::before{content:'';display:block;width:32px;height:1px;background:#A8CAFF;}
-.hero-name{font-family:'Anton',sans-serif;font-size:clamp(60px,9vw,120px);line-height:0.9;letter-spacing:4px;color:var(--white);margin-bottom:8px;}
-.hero-name span{display:block;-webkit-text-stroke:1.5px rgba(255,255,255,0.25);color:transparent;}
-.hero-tagline{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#A8CAFF;margin-top:16px;margin-bottom:40px;}
-.hero-desc{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.90);max-width:420px;margin-bottom:48px;}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
-.btn-accent{padding:16px 40px;background:var(--accent);color:var(--white);font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;display:inline-block;border:none;cursor:pointer;}
-.btn-accent:hover{background:var(--blue3);transform:translateY(-2px);}
-.btn-ghost{padding:16px 40px;background:transparent;color:var(--white);font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,0.55);transition:all 0.2s;display:inline-block;}
-.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,0.1);}
-.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.15);}
-.hero-stat-num{font-family:'Anton',sans-serif;font-size:36px;letter-spacing:2px;color:#A8CAFF;line-height:1;}
-.hero-stat-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:4px;}
-.hero-right{position:relative;overflow:hidden;z-index:2;}
-.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--blue) 0%,transparent 30%),linear-gradient(to top,var(--blue) 0%,transparent 30%);z-index:1;}
-.hero-visual{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-.moon-visual{width:350px;height:350px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(200,216,255,0.18) 0%,rgba(74,144,217,0.1) 50%,transparent 70%);border:2px solid rgba(168,202,255,0.2);box-shadow:0 0 80px rgba(74,144,217,0.2);animation:moonPulse 6s ease-in-out infinite;display:flex;align-items:center;justify-content:center;font-size:8rem;}
-@keyframes moonPulse{0%,100%{box-shadow:0 0 80px rgba(74,144,217,0.2)}50%{box-shadow:0 0 140px rgba(74,144,217,0.35)}}
-.hero-pill{position:absolute;top:140px;right:40px;background:var(--blue3);border:2px solid rgba(168,202,255,0.35);padding:16px 24px;z-index:2;animation:pillFloat 5s ease-in-out infinite;}
-@keyframes pillFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.pill-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.82);}
-.pill-value{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:2px;color:#A8CAFF;margin-top:4px;}
+    /* HERO */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:end;position:relative;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 100%,rgba(212,168,75,0.12) 0%,transparent 70%);}
+    .hero-left{padding:0 3rem 6rem;position:relative;z-index:2;}
+    .hero-label{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
+    .hero-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+    .hero-artist{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,7rem);line-height:0.95;letter-spacing:1px;color:var(--white);margin-bottom:0.5rem;}
+    .hero-artist span{color:var(--gold);display:block;}
+    .hero-genre{font-size:1rem;color:rgba(245,236,215,0.55);font-weight:300;letter-spacing:3px;text-transform:uppercase;margin-bottom:2.5rem;}
+    .hero-single{background:rgba(212,168,75,0.08);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:flex;align-items:center;gap:1.25rem;}
+    .hero-single-art{width:56px;height:56px;background:var(--brown);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+    .hero-single-art img{width:100%;height:100%;object-fit:cover;}
+    .hero-single-play{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:background 0.3s;}
+    .hero-single-play:hover{background:var(--gold2);}
+    .hero-single-play svg{width:20px;height:20px;fill:var(--bg);margin-left:3px;}
+    .hero-single-info{}
+    .hero-single-label{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+    .hero-single-title{font-size:1.1rem;font-weight:700;color:var(--white);}
+    .hero-single-artist{font-size:0.82rem;color:rgba(245,236,215,0.55);}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{background:var(--gold);color:var(--bg);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-primary:hover{background:var(--gold2);}
+    .btn-outline{border:1px solid rgba(245,236,215,0.3);color:var(--cream);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
 
-/* MARQUEE */
-.marquee-strip{background:var(--accent);overflow:hidden;padding:14px 0;white-space:nowrap;}
-.marquee-inner{display:inline-block;animation:marquee 20s linear infinite;}
-.marquee-inner span{font-family:'Anton',sans-serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--white);padding:0 32px;}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* HERO RIGHT — ARTIST PHOTO */
+    .hero-right{position:relative;z-index:2;height:100vh;overflow:hidden;}
+    .hero-photo{width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.9);}
+    .hero-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 40%),linear-gradient(to top,var(--bg) 0%,transparent 30%);}
 
-/* SECTION LABELS */
-.section-label{font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
-.section-label::after{content:'';display:block;width:40px;height:2px;background:var(--accent);}
-.section-title{font-family:'Anton',sans-serif;font-size:clamp(40px,5vw,64px);letter-spacing:3px;line-height:1;margin-bottom:16px;color:var(--blue);}
+    /* STREAMING */
+    .streaming{padding:3rem;background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);}
+    .streaming-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;}
+    .streaming-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);font-weight:600;white-space:nowrap;}
+    .streaming-links{display:flex;gap:1rem;flex-wrap:wrap;}
+    .stream-btn{display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;border:1px solid var(--border);border-radius:50px;color:var(--cream);text-decoration:none;font-size:0.82rem;font-weight:600;transition:all 0.3s;white-space:nowrap;}
+    .stream-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .stream-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0;}
 
-/* FEATURED — white bg */
-.featured{padding:120px 60px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.featured-cover{background:linear-gradient(135deg,var(--blue2),var(--blue3));border:none;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:9rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(26,86,219,0.25);}
-.featured-badge{position:absolute;top:20px;left:20px;background:var(--white);color:var(--accent);font-family:'Anton',sans-serif;font-size:11px;font-weight:800;letter-spacing:3px;padding:6px 14px;}
-.featured-moon{animation:slowFloat 6s ease-in-out infinite;}
-@keyframes slowFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-.featured-meta{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue3);margin-bottom:20px;}
-.featured-desc{font-size:15px;line-height:1.9;color:#1A3A7A;margin-bottom:32px;}
-.featured-actions{display:flex;gap:16px;flex-wrap:wrap;}
-.featured-actions .btn-ghost{border-color:var(--accent);color:var(--blue);border-width:2px;}
-.featured-actions .btn-ghost:hover{background:var(--accent);color:var(--white);}
+    /* ABOUT STRIP */
+    .about-strip{padding:6rem 3rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;border-bottom:1px solid var(--border2);}
+    .about-photo{border-radius:4px;overflow:hidden;aspect-ratio:3/4;position:relative;}
+    .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;}
+    .about-photo-label{position:absolute;bottom:1.5rem;left:1.5rem;background:var(--gold);color:var(--bg);padding:0.5rem 1rem;border-radius:2px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+    .about-text{}
+    .section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+    .section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+    .about-heading{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:var(--white);line-height:1.0;margin-bottom:1.25rem;letter-spacing:1px;}
+    .about-desc{font-size:0.95rem;line-height:1.9;color:rgba(245,236,215,0.65);margin-bottom:2rem;}
+    .about-facts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+    .about-fact{border-left:2px solid var(--gold);padding-left:0.75rem;}
+    .about-fact-label{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:0.2rem;}
+    .about-fact-value{font-size:0.9rem;font-weight:600;color:var(--cream);}
 
-/* STREAMING — light blue bg */
-.streaming{background:#D6E8FF;padding:60px;border-top:2px solid rgba(26,86,219,0.15);border-bottom:2px solid rgba(26,86,219,0.15);}
-.streaming-inner{max-width:1280px;margin:0 auto;text-align:center;}
-.streaming-label{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:40px;}
-.streaming-platforms{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-.platform-btn{padding:14px 28px;background:var(--white);border:2px solid var(--accent);color:var(--blue);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:flex;align-items:center;gap:10px;}
-.platform-btn:hover{background:var(--accent);color:var(--white);}
+    /* MUSIC SECTION */
+    .music-section{background:var(--bg2);padding:6rem 3rem;border-bottom:1px solid var(--border2);}
+    .music-inner{max-width:1200px;margin:0 auto;}
+    .section-title{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:1px;margin-top:0.75rem;margin-bottom:3rem;}
+    .music-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);}
+    .music-card{background:var(--bg2);padding:2rem;transition:background 0.3s;position:relative;overflow:hidden;}
+    .music-card:hover{background:var(--bg3);}
+    .music-card-art{width:100%;aspect-ratio:1;background:var(--brown);border-radius:4px;overflow:hidden;margin-bottom:1.25rem;position:relative;}
+    .music-card-art img{width:100%;height:100%;object-fit:cover;}
+    .music-card-art-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:2rem;color:rgba(212,168,75,0.3);letter-spacing:2px;}
+    .music-card-new{position:absolute;top:0.75rem;left:0.75rem;background:var(--gold);color:var(--bg);padding:0.2rem 0.6rem;border-radius:2px;font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+    .music-card-title{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;}
+    .music-card-artist{font-size:0.82rem;color:var(--gray);margin-bottom:1rem;}
+    .music-card-link{font-size:0.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;}
 
-/* ARTIST — deep navy */
-.artist-section{padding:120px 60px;background:var(--blue);}
-.artist-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.artist-section .section-label{color:#A8CAFF;}
-.artist-section .section-label::after{background:#A8CAFF;}
-.artist-section .section-title{color:var(--white);}
-.artist-quote{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-style:italic;line-height:1.5;color:var(--white);margin-bottom:24px;}
-.artist-quote em{color:#A8CAFF;font-style:normal;}
-.artist-body{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.90);margin-bottom:32px;}
-.artist-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
-.tag{padding:8px 20px;border:2px solid rgba(168,202,255,0.45);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A8CAFF;transition:all 0.2s;}
-.tag:hover{background:rgba(168,202,255,0.12);border-color:#A8CAFF;}
-.artist-visual{background:var(--blue3);border:2px solid rgba(168,202,255,0.2);padding:48px;position:relative;}
-.artist-facts{display:flex;flex-direction:column;gap:24px;}
-.fact-item{display:flex;align-items:flex-start;gap:20px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.10);}
-.fact-item:last-child{border-bottom:none;padding-bottom:0;}
-.fact-icon{font-size:24px;flex-shrink:0;}
-.fact-title{font-weight:700;font-size:14px;margin-bottom:4px;color:var(--white);}
-.fact-desc{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;}
+    /* GALLERY STRIP */
+    .gallery-strip{padding:6rem 3rem;max-width:1200px;margin:0 auto;border-bottom:1px solid var(--border2);}
+    .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:4px;margin-top:2.5rem;}
+    .gallery-item{overflow:hidden;border-radius:2px;}
+    .gallery-item:first-child{grid-row:span 2;}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.5s;display:block;}
+    .gallery-item:hover img{transform:scale(1.04);}
+    .gallery-item{aspect-ratio:4/3;}
+    .gallery-item:first-child{aspect-ratio:auto;}
 
-/* SOCIAL — white bg */
-.social-section{padding:100px 60px;max-width:1280px;margin:0 auto;text-align:center;}
-.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
-.social-card{background:#F0F6FF;border:2px solid rgba(26,86,219,0.2);padding:40px 24px;text-decoration:none;transition:all 0.3s;display:block;}
-.social-card:hover{border-color:var(--accent);transform:translateY(-4px);background:#D6E8FF;}
-.social-icon{font-size:2.5rem;margin-bottom:12px;}
-.social-name{font-family:'Anton',sans-serif;font-size:16px;letter-spacing:2px;color:var(--blue);margin-bottom:6px;}
-.social-handle{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px;}
+    /* CONNECT */
+    .connect{background:var(--bg2);border-top:1px solid var(--border2);padding:5rem 3rem;text-align:center;}
+    .connect h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,5vw,4rem);color:var(--white);letter-spacing:2px;margin-bottom:1rem;}
+    .connect p{color:rgba(245,236,215,0.55);max-width:500px;margin:0 auto 2.5rem;line-height:1.8;}
+    .social-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+    .social-btn{display:flex;align-items:center;gap:0.6rem;padding:0.75rem 1.5rem;border:1px solid var(--border);border-radius:50px;color:var(--cream);text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.3s;}
+    .social-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .social-btn svg{width:16px;height:16px;fill:currentColor;}
 
-/* BOOKING */
-.booking{background:var(--accent);padding:80px 60px;text-align:center;}
-.booking h2{font-family:'Anton',sans-serif;font-size:clamp(36px,5vw,60px);letter-spacing:3px;color:var(--white);margin-bottom:16px;}
-.booking p{font-size:16px;color:rgba(255,255,255,0.92);margin-bottom:40px;line-height:1.8;max-width:600px;margin-left:auto;margin-right:auto;}
-.btn-white{padding:16px 40px;background:var(--white);color:var(--accent);font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:inline-block;border:2px solid var(--white);}
-.btn-white:hover{background:var(--blue);color:var(--white);border-color:var(--blue);transform:translateY(-2px);}
+    /* FOOTER */
+    footer{background:var(--bg);padding:3rem;border-top:1px solid var(--border2);}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+    .footer-logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);}
+    .footer-links{display:flex;gap:2rem;}
+    .footer-links a{font-size:0.82rem;color:rgba(245,236,215,0.45);text-decoration:none;transition:color 0.3s;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-copy{font-size:0.75rem;color:rgba(245,236,215,0.25);margin-top:1.5rem;text-align:center;max-width:1200px;margin-left:auto;margin-right:auto;padding-top:1.5rem;border-top:1px solid var(--border2);}
 
-/* FOOTER */
-footer{background:var(--blue);border-top:2px solid rgba(168,202,255,0.15);padding:60px;}
-.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
-.footer-logo{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:5px;color:var(--white);}
-.footer-logo span{color:var(--accent-light);}
-.footer-tagline{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-top:6px;}
-.footer-links{display:flex;gap:32px;flex-wrap:wrap;}
-.footer-links a{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.78);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--accent-light);}
-.footer-social{display:flex;gap:16px;}
-.footer-social a{color:rgba(255,255,255,0.68);text-decoration:none;font-size:1.4rem;transition:color 0.2s;}
-.footer-social a:hover{color:var(--accent-light);}
-.footer-copy{max-width:1280px;margin:40px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.footer-copy p{font-size:12px;font-weight:500;color:rgba(255,255,255,0.58);}
-.footer-copy a{color:var(--accent-light);text-decoration:none;font-weight:700;}
-</style>
+    @media(max-width:1024px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:8rem 1.5rem 4rem;}.about-strip{grid-template-columns:1fr;gap:3rem;}.music-grid{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}.gallery-item:first-child{grid-row:span 1;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.about-strip,.music-section,.gallery-strip,.connect{padding:4rem 1.5rem;}.music-grid{grid-template-columns:1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}.footer-inner{flex-direction:column;text-align:center;}.streaming{padding:2rem 1.5rem;}}
+  </style>
 </head>
 <body>
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">BLIZ<span>CITY</span></a>
+
+<nav>
+  <a href="index.html" class="nav-logo">BLIZCITY</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="music.html">Music</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="messages.html">Messages</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-cta">Stream Now</a>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-stream">Stream Now</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="stars">
-    <div class="star" style="width:2px;height:2px;top:10%;left:15%;animation-delay:0s;"></div>
-    <div class="star" style="width:3px;height:3px;top:25%;left:80%;animation-delay:0.5s;"></div>
-    <div class="star" style="width:2px;height:2px;top:60%;left:10%;animation-delay:1s;"></div>
-    <div class="star" style="width:2px;height:2px;top:40%;left:90%;animation-delay:1.5s;"></div>
-    <div class="star" style="width:3px;height:3px;top:80%;left:70%;animation-delay:2s;"></div>
-    <div class="star" style="width:2px;height:2px;top:30%;left:50%;animation-delay:0.3s;"></div>
-    <div class="star" style="width:2px;height:2px;top:70%;left:30%;animation-delay:0.8s;"></div>
-    <div class="star" style="width:3px;height:3px;top:15%;left:60%;animation-delay:1.2s;"></div>
-    <div class="star" style="width:2px;height:2px;top:85%;left:45%;animation-delay:1.8s;"></div>
-    <div class="star" style="width:2px;height:2px;top:50%;left:25%;animation-delay:0.6s;"></div>
-    <div class="star" style="width:3px;height:3px;top:5%;left:40%;animation-delay:2.2s;"></div>
-    <div class="star" style="width:2px;height:2px;top:95%;left:85%;animation-delay:0.9s;"></div>
-  </div>
   <div class="hero-left">
-    <div class="hero-tag">Sound of New Era · Africa's Premier Label</div>
-    <h1 class="hero-name">BLIZ<span>CITY</span></h1>
-    <p class="hero-tagline">"Where African music meets the world"</p>
-    <p class="hero-desc">BLIZCITY is Africa's premier music label — home of MoonkhidMusic and the Sound of New Era. We amplify authentic African voices and push the boundaries of sound, culture and identity.</p>
-    <div class="hero-actions">
-      <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="btn-accent">🎵 Stream Sincere</a>
-      <a href="about.html" class="btn-ghost">Our Story</a>
+    <div class="hero-label">Official Artist</div>
+    <div class="hero-artist">MOONKHID<span>MUSIC</span></div>
+    <div class="hero-genre">Afrobeats &middot; Afropop</div>
+    <div class="hero-single">
+      <div class="hero-single-art"><img src="images/moonkhid-1.jpg" alt="Sincere"></div>
+      <div class="hero-single-play" onclick="window.open('https://open.spotify.com/album/2D0cgsU6XneSBncfjUjTgc','_blank')">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="hero-single-info">
+        <div class="hero-single-label">Latest Single</div>
+        <div class="hero-single-title">Sincere</div>
+        <div class="hero-single-artist">MoonkhidMusic</div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">🌙</div>
-        <div class="hero-stat-label">MoonkhidMusic</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">1</div>
-        <div class="hero-stat-label">Single Out Now</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">∞</div>
-        <div class="hero-stat-label">African Energy</div>
-      </div>
+    <div class="hero-btns">
+      <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="btn-primary">Stream Sincere</a>
+      <a href="about.html" class="btn-outline">About Artist</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-visual">
-      <div class="moon-visual">
-  <img src="images/moonkhid-1.jpg" alt="MoonkhidMusic" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-</div>
-    </div>
-    <div class="hero-pill">
-      <div class="pill-label">Out Now</div>
-      <div class="pill-value">SINCERE</div>
-    </div>
+    <img src="images/moonkhid-1.jpg" alt="MoonkhidMusic" class="hero-photo">
+    <div class="hero-photo-overlay"></div>
   </div>
 </section>
 
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    <span>BLIZCITY</span><span>·</span><span>MOONKHIDMUSIC</span><span>·</span><span>SINCERE</span><span>·</span><span>AFRO POP</span><span>·</span><span>AFRO DANCEHALL</span><span>·</span><span>BENIN CITY</span><span>·</span><span>SOUND OF NEW ERA</span><span>·</span><span>BLIZCITY</span><span>·</span><span>MOONKHIDMUSIC</span><span>·</span><span>SINCERE</span><span>·</span><span>AFRO POP</span><span>·</span><span>AFRO DANCEHALL</span><span>·</span><span>BENIN CITY</span><span>·</span><span>SOUND OF NEW ERA</span><span>·</span>
-  </div>
-</div>
-
-<div class="featured">
-  <div class="featured-cover">
-    <img src="images/moonkhid-2.jpg" alt="MoonkhidMusic - Sincere" style="width: 1500px;;height: 1500px;;object-fit:cover;">
-    <div class="featured-badge">OUT NOW</div>
-  </div>
-  <div>
-    <div class="section-label">Featured Release</div>
-    <h2 class="section-title">SINCERE</h2>
-    <div class="featured-meta">MoonkhidMusic · 2026 · Afro Pop / Afro Dancehall</div>
-    <p class="featured-desc">The debut single from BLIZCITY's first artist MoonkhidMusic — "Sincere" is a heartfelt Afro Pop anthem blending soulful melodies with dancehall rhythms. Raw, honest and deeply personal — this is the sound of the new era.</p>
-    <div class="featured-actions">
-      <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="btn-accent">🎵 Stream Now</a>
-      <a href="music.html" class="btn-ghost">Full Catalogue</a>
-    </div>
-  </div>
-</div>
-
+<!-- STREAMING LINKS -->
 <div class="streaming">
   <div class="streaming-inner">
-    <div class="streaming-label">Stream Sincere on all platforms</div>
-    <div class="streaming-platforms">
-      <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="platform-btn">🎵 Stream Now</a>
-      <a href="#" class="platform-btn">🎧 Spotify — Coming Soon</a>
-      <a href="#" class="platform-btn">🍎 Apple Music — Coming Soon</a>
-      <a href="#" class="platform-btn">🔊 Audiomack — Coming Soon</a>
-      <a href="#" class="platform-btn">🎶 Boomplay — Coming Soon</a>
+    <span class="streaming-label">Stream on</span>
+    <div class="streaming-links">
+      <a href="https://open.spotify.com/album/2D0cgsU6XneSBncfjUjTgc?si=yyesqO_4TXCdBLfKkSnlhw" target="_blank" class="stream-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://music.apple.com/us/song/sincere/6767625063" target="_blank" class="stream-btn">
+        <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208c-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03c.525 0 1.048-.007 1.572-.053.527-.045 1.045-.14 1.545-.328 1.31-.506 2.24-1.403 2.78-2.705.192-.456.29-.935.363-1.417.056-.392.088-.785.1-1.18.003-.034.01-.062.013-.094V6.935c-.002-.27-.01-.54-.02-.812zM12 16.8c-2.652 0-4.8-2.148-4.8-4.8S9.348 7.2 12 7.2s4.8 2.148 4.8 4.8-2.148 4.8-4.8 4.8zm4.965-8.772a1.2 1.2 0 110-2.4 1.2 1.2 0 010 2.4zM12 9.6a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8z"/></svg>
+        Apple Music
+      </a>
+      <a href="https://link.deezer.com/s/33tji6q3Zt48Fg0rOnbXr" target="_blank" class="stream-btn">
+        <svg viewBox="0 0 24 24"><path d="M18.944 19.297h4.403v-1.37h-4.403zM18.944 16.429h4.403v-1.37h-4.403zM18.944 13.56h4.403v-1.37h-4.403zM18.944 10.691h4.403v-1.37h-4.403zM13.258 19.297h4.403v-1.37h-4.403zM13.258 16.429h4.403v-1.37h-4.403zM13.258 13.56h4.403v-1.37h-4.403zM7.571 19.297h4.403v-1.37H7.571zM7.571 16.429h4.403v-1.37H7.571zM1.885 19.297h4.403v-1.37H1.885z"/></svg>
+        Deezer
+      </a>
+      <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="stream-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm4.8 16.8l-6-3.6V7.2l6 3.6v6z"/></svg>
+        All Platforms
+      </a>
     </div>
   </div>
 </div>
 
-<div class="artist-section">
-  <div class="artist-inner">
-    <div>
-      <div class="section-label">Featured Artist</div>
-      <p class="artist-quote">"I make music that is <em>sincere</em> — straight from the soul, no filter, no pretense. Just pure African energy."</p>
-      <p class="artist-body">Born Omorodion Osasenaga Jeffrey in Benin City, Nigeria — MoonkhidMusic is BLIZCITY's rising star. An Afro Pop and Afro Dancehall artist with a sound as deep and mysterious as the moon itself.</p>
-      <div class="artist-tags">
-        <span class="tag">Afro Pop</span>
-        <span class="tag">Afro Dancehall</span>
-        <span class="tag">Benin City</span>
-        <span class="tag">Nigeria</span>
-        <span class="tag">🌙 Moon</span>
+<!-- ABOUT -->
+<div class="about-strip">
+  <div class="about-photo">
+    <img src="images/moonkhid-2.jpg" alt="MoonkhidMusic">
+    <div class="about-photo-label">Benin City, Nigeria</div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">The Artist</div>
+    <div class="about-heading">MOONKHID<br>MUSIC</div>
+    <p class="about-desc">Born Omorodion J. Osasenaga, MoonkhidMusic is an emerging Afrobeats and Afropop artist from Benin City, Nigeria. With a passion for creating melodies that began at a young age, his music tells stories of love, life and dreams — inviting audiences into his world.</p>
+    <p class="about-desc">His debut single <strong style="color:var(--gold);">Sincere</strong> marks the beginning of an exciting journey. With a unique blend of genres and a voice that resonates deeply, MoonkhidMusic is an artist to watch.</p>
+    <div class="about-facts">
+      <div class="about-fact">
+        <div class="about-fact-label">Born</div>
+        <div class="about-fact-value">October 8th</div>
       </div>
-      <a href="about.html" class="btn-accent">Read Full Story</a>
-    </div>
-    <div class="artist-visual">
-      <div class="artist-facts">
-        <div class="fact-item">
-          <div class="fact-icon">🌙</div>
-          <div>
-            <div class="fact-title">Stage Name: MoonkhidMusic</div>
-            <div class="fact-desc">The moon symbol represents mystery, power and artistic identity — always shining even in the darkest nights.</div>
-          </div>
-        </div>
-        <div class="fact-item">
-          <div class="fact-icon">🎵</div>
-          <div>
-            <div class="fact-title">Genre: Afro Pop & Afro Dancehall</div>
-            <div class="fact-desc">A unique blend of Afro Pop melodies and Dancehall energy — music that moves the body and touches the soul.</div>
-          </div>
-        </div>
-        <div class="fact-item">
-          <div class="fact-icon">🇳🇬</div>
-          <div>
-            <div class="fact-title">From: Benin City, Nigeria</div>
-            <div class="fact-desc">Rooted in the rich cultural heritage of Benin City — one of Nigeria's most historic and culturally significant cities.</div>
-          </div>
-        </div>
-        <div class="fact-item">
-          <div class="fact-icon">🚀</div>
-          <div>
-            <div class="fact-title">Debut Single: Sincere</div>
-            <div class="fact-desc">The world's first introduction to MoonkhidMusic — raw, honest and deeply personal. Stream now on all platforms.</div>
-          </div>
-        </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Origin</div>
+        <div class="about-fact-value">Benin City, Nigeria</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Genre</div>
+        <div class="about-fact-value">Afrobeats &middot; Afropop</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Label</div>
+        <div class="about-fact-value">BLIZCITY</div>
       </div>
     </div>
+    <a href="about.html" class="btn-primary">Full Bio</a>
   </div>
 </div>
 
-<div class="social-section">
-  <div class="section-label" style="justify-content:center;">Follow The Journey</div>
-  <h2 class="section-title" style="text-align:center;">FIND US ONLINE</h2>
-  <div class="social-grid">
-    <a href="https://www.instagram.com/moonkhid_x" target="_blank" class="social-card">
-      <div class="social-icon">📸</div>
-      <div class="social-name">INSTAGRAM</div>
-      <div class="social-handle">@moonkhid_x</div>
-    </a>
-    <a href="https://www.tiktok.com/@moonkhidmusic" target="_blank" class="social-card">
-      <div class="social-icon">🎵</div>
-      <div class="social-name">TIKTOK</div>
-      <div class="social-handle">@moonkhidmusic</div>
-    </a>
-    <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="social-card">
-      <div class="social-icon">🎧</div>
-      <div class="social-name">STREAM</div>
-      <div class="social-handle">Sincere — Out Now</div>
-    </a>
+<!-- MUSIC -->
+<div class="music-section">
+  <div class="music-inner">
+    <div class="section-label">Discography</div>
+    <div class="section-title">MUSIC</div>
+    <div class="music-grid">
+      <div class="music-card">
+        <div class="music-card-art">
+          <img src="images/moonkhid-1.jpg" alt="Sincere">
+          <span class="music-card-new">New</span>
+        </div>
+        <div class="music-card-title">Sincere</div>
+        <div class="music-card-artist">MoonkhidMusic &middot; 2024</div>
+        <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="music-card-link">Stream Now &rarr;</a>
+      </div>
+      <div class="music-card">
+        <div class="music-card-art">
+          <div class="music-card-art-placeholder">COMING<br>SOON</div>
+        </div>
+        <div class="music-card-title">Next Release</div>
+        <div class="music-card-artist">MoonkhidMusic &middot; 2026</div>
+        <a href="contact.html" class="music-card-link">Stay Tuned &rarr;</a>
+      </div>
+      <div class="music-card">
+        <div class="music-card-art">
+          <div class="music-card-art-placeholder">MORE<br>MUSIC</div>
+        </div>
+        <div class="music-card-title">All Releases</div>
+        <div class="music-card-artist">MoonkhidMusic</div>
+        <a href="music.html" class="music-card-link">View All &rarr;</a>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="booking">
-  <h2>BOOK MOONKHID</h2>
-  <p>Looking to book MoonkhidMusic for your show, event or collaboration? Get in touch with the BLIZCITY management team today.</p>
-  <a href="mailto:Moonkhidmngt@gmail.com" class="btn-white">📧 Book Now</a>
+<!-- GALLERY -->
+<div class="gallery-strip">
+  <div class="section-label">Photos</div>
+  <div class="section-title">GALLERY</div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="images/moonkhid-3.jpg" alt="MoonkhidMusic"></div>
+    <div class="gallery-item"><img src="images/moonkhid-4.jpg" alt="MoonkhidMusic"></div>
+    <div class="gallery-item"><img src="images/moonkhid-5.jpg" alt="MoonkhidMusic"></div>
+    <div class="gallery-item"><img src="images/moonkhid-6.jpg" alt="MoonkhidMusic"></div>
+    <div class="gallery-item"><img src="images/moonkhid-7.jpg" alt="MoonkhidMusic"></div>
+  </div>
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="gallery.html" class="btn-outline">View Full Gallery &rarr;</a>
+  </div>
+</div>
+
+<!-- CONNECT -->
+<div class="connect">
+  <h2>FOLLOW THE JOURNEY</h2>
+  <p>Stay connected with MoonkhidMusic — new music, shows, behind the scenes and more.</p>
+  <div class="social-links">
+    <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank" class="social-btn">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+    <a href="https://www.instagram.com/moonkhid_x" target="_blank" class="social-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.tiktok.com/@moonkhidmusic" target="_blank" class="social-btn">
+      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      TikTok
+    </a>
+    <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="social-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm4.8 16.8l-6-3.6V7.2l6 3.6v6z"/></svg>
+      All Platforms
+    </a>
+  </div>
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div>
-      <div class="footer-logo">BLIZ<span>CITY</span></div>
-      <div class="footer-tagline">Sound of New Era · The Label · The Movement</div>
-    </div>
+    <div class="footer-logo">BLIZCITY</div>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
       <a href="music.html">Music</a>
+      <a href="about.html">About</a>
       <a href="gallery.html">Gallery</a>
-      <a href="messages.html">Messages</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/moonkhid_x" target="_blank">📸</a>
-      <a href="https://www.tiktok.com/@moonkhidmusic" target="_blank">🎵</a>
-      <a href="mailto:Moonkhidmngt@gmail.com">📧</a>
-    </div>
   </div>
-  <div class="footer-copy">
-    <p>© 2026 BLIZCITY Music. All Rights Reserved.</p>
-    <p>Website by <a href="https://rayiecho.github.io" target="_blank">Regan Ayiecho</a></p>
-  </div>
+  <div class="footer-copy">&copy; 2026 BLIZCITY &middot; MoonkhidMusic &middot; All rights reserved</div>
 </footer>
 
-<script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
-});
-</script>
 </body>
 </html>
