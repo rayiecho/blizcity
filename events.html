@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoonkhidMusic Shows & Events — upcoming gigs, performances and appearances.">
+  <title>MoonkhidMusic — Shows & Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0F0800;--bg2:#1A0F00;--bg3:#241500;--gold:#D4A84B;--gold2:#E8C97A;--brown:#3D2000;--cream:#F5ECD7;--gray:#8A7A60;--white:#FDFAF5;--border:rgba(212,168,75,0.15);--border2:rgba(212,168,75,0.08);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(15,8,0,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
+    .nav-logo{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--gold);text-decoration:none;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{color:rgba(245,236,215,0.75);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.5px;transition:color 0.3s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-stream{background:var(--gold);color:var(--bg);padding:0.55rem 1.5rem;border-radius:2px;font-size:0.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+    .nav-stream:hover{background:var(--gold2);}
+    .section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+    .section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+    .btn-primary{background:var(--gold);color:var(--bg);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-primary:hover{background:var(--gold2);}
+    .btn-outline{border:1px solid rgba(245,236,215,0.3);color:var(--cream);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* PAGE HERO */
+    .page-hero{background:url('images/moonkhid-12.jpg') center center / cover no-repeat;padding:10rem 3rem 6rem;position:relative;border-bottom:1px solid var(--border2);}
+    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(15,8,0,0.75) 0%,rgba(15,8,0,0.45) 50%,rgba(15,8,0,0.15) 100%);}
+    .page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+    .page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,6rem);color:#FFFFFF;letter-spacing:2px;text-shadow:0 3px 25px rgba(0,0,0,0.8);}
+    .page-hero h1 span{color:var(--gold);}
+    .page-hero-sub{font-size:1.05rem;color:#FFFFFF;margin-top:1rem;max-width:500px;line-height:1.9;text-shadow:0 2px 15px rgba(0,0,0,0.9);font-weight:500;}
+
+    /* EVENTS */
+    .events-section{padding:6rem 3rem;max-width:1200px;margin:0 auto;border-bottom:1px solid var(--border2);}
+    .events-title{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:1px;margin-top:0.75rem;margin-bottom:3rem;}
+    .event-card{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--border2);transition:background 0.3s;}
+    .event-card:last-child{border-bottom:none;}
+    .event-card:hover{padding-left:1rem;padding-right:1rem;margin:0 -1rem;background:rgba(212,168,75,0.04);border-radius:4px;}
+    .event-date{text-align:center;}
+    .event-month{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+    .event-day{font-family:'Anton',sans-serif;font-size:3rem;color:var(--white);line-height:1;letter-spacing:1px;}
+    .event-year{font-size:0.72rem;color:var(--gray);letter-spacing:1px;}
+    .event-info{}
+    .event-title{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--white);letter-spacing:1px;margin-bottom:0.4rem;}
+    .event-venue{font-size:0.88rem;color:var(--gold);font-weight:600;margin-bottom:0.25rem;}
+    .event-location{font-size:0.82rem;color:var(--gray);}
+    .event-status{display:inline-block;padding:0.3rem 0.85rem;border-radius:2px;font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:0.5rem;}
+    .event-status.upcoming{background:rgba(212,168,75,0.12);border:1px solid rgba(212,168,75,0.3);color:var(--gold);}
+    .event-status.soldout{background:rgba(220,50,50,0.1);border:1px solid rgba(220,50,50,0.3);color:#ff6b6b;}
+    .event-status.free{background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.3);color:#27AE60;}
+    .event-action{}
+    .btn-ticket{background:var(--gold);color:var(--bg);padding:0.75rem 1.5rem;border-radius:2px;font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;white-space:nowrap;display:inline-block;}
+    .btn-ticket:hover{background:var(--gold2);}
+    .btn-ticket.disabled{background:rgba(212,168,75,0.2);color:rgba(212,168,75,0.5);cursor:not-allowed;}
+
+    /* NO EVENTS */
+    .no-events{text-align:center;padding:5rem 2rem;border:1px dashed var(--border);border-radius:4px;}
+    .no-events h3{font-family:'Anton',sans-serif;font-size:2rem;color:var(--white);letter-spacing:2px;margin-bottom:1rem;}
+    .no-events p{font-size:0.95rem;color:var(--gray);line-height:1.8;max-width:400px;margin:0 auto 2rem;}
+
+    /* PAST EVENTS */
+    .past-section{background:var(--bg2);padding:6rem 3rem;border-bottom:1px solid var(--border2);}
+    .past-inner{max-width:1200px;margin:0 auto;}
+    .past-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);margin-top:2.5rem;}
+    .past-card{background:var(--bg2);padding:2rem;transition:background 0.3s;}
+    .past-card:hover{background:var(--bg3);}
+    .past-card-date{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.5rem;}
+    .past-card-title{font-family:'Anton',sans-serif;font-size:1.1rem;color:var(--white);letter-spacing:1px;margin-bottom:0.25rem;}
+    .past-card-venue{font-size:0.82rem;color:var(--gray);}
+
+    /* BOOKING CTA */
+    .booking-cta{padding:6rem 3rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;border-bottom:1px solid var(--border2);}
+    .booking-text h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:1px;margin-bottom:1rem;}
+    .booking-text p{font-size:0.95rem;color:rgba(245,236,215,0.6);line-height:1.9;margin-bottom:2rem;}
+    .booking-photo{border-radius:4px;overflow:hidden;aspect-ratio:4/3;}
+    .booking-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+
+    /* NOTIFY */
+    .notify{background:var(--bg2);padding:5rem 3rem;text-align:center;border-top:1px solid var(--border2);}
+    .notify h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:2px;margin-bottom:1rem;}
+    .notify p{color:rgba(245,236,215,0.55);max-width:500px;margin:0 auto 2rem;line-height:1.8;}
+    .notify-form{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto;}
+    .notify-input{flex:1;min-width:220px;background:var(--bg3);border:1px solid var(--border2);color:var(--cream);padding:0.85rem 1.25rem;border-radius:2px;font-family:inherit;font-size:0.92rem;outline:none;transition:border-color 0.2s;}
+    .notify-input:focus{border-color:var(--gold);}
+    .notify-input::placeholder{color:rgba(245,236,215,0.3);}
+    .btn-notify{background:var(--gold);color:var(--bg);border:none;padding:0.85rem 2rem;border-radius:2px;font-family:inherit;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.3s;}
+    .btn-notify:hover{background:var(--gold2);}
+
+    footer{background:var(--bg);padding:3rem;border-top:1px solid var(--border2);}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+    .footer-logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);}
+    .footer-links{display:flex;gap:2rem;}
+    .footer-links a{font-size:0.82rem;color:rgba(245,236,215,0.45);text-decoration:none;transition:color 0.3s;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-copy{font-size:0.75rem;color:rgba(245,236,215,0.25);margin-top:1.5rem;text-align:center;max-width:1200px;margin-left:auto;margin-right:auto;padding-top:1.5rem;border-top:1px solid var(--border2);}
+
+    @media(max-width:1024px){.booking-cta{grid-template-columns:1fr;gap:3rem;}.past-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.events-section,.past-section,.booking-cta,.notify{padding:4rem 1.5rem;}.event-card{grid-template-columns:80px 1fr;gap:1.5rem;}.event-action{grid-column:span 2;}.past-grid{grid-template-columns:1fr;}.footer-inner{flex-direction:column;text-align:center;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">BLIZCITY</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="music.html">Music</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="events.html" class="active">Shows</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-stream">Stream Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Live</div>
+    <h1>SHOWS &amp;<br><span>EVENTS</span></h1>
+    <p class="page-hero-sub">Catch MoonkhidMusic live — upcoming shows, events and performances.</p>
+  </div>
+</div>
+
+<!-- UPCOMING EVENTS -->
+<div class="events-section">
+  <div class="section-label">Upcoming</div>
+  <div class="events-title">UPCOMING SHOWS</div>
+
+  <!-- No events state — replace with real events when available -->
+  <div class="no-events">
+    <h3>TOUR DATES COMING</h3>
+    <p>No shows scheduled yet — but MoonkhidMusic is coming to a city near you soon. Sign up below to be the first to know.</p>
+    <a href="#notify" class="btn-primary">Get Notified</a>
+  </div>
+
+  <!-- Example event cards — uncomment and fill in when shows are booked
+  <div class="event-card">
+    <div class="event-date">
+      <div class="event-month">AUG</div>
+      <div class="event-day">15</div>
+      <div class="event-year">2026</div>
+    </div>
+    <div class="event-info">
+      <div class="event-title">SINCERE LAUNCH NIGHT</div>
+      <div class="event-venue">The Arena, Lagos</div>
+      <div class="event-location">Lagos, Nigeria</div>
+      <span class="event-status upcoming">Upcoming</span>
+    </div>
+    <div class="event-action">
+      <a href="#" class="btn-ticket">Get Tickets</a>
+    </div>
+  </div>
+  -->
+</div>
+
+<!-- PAST EVENTS -->
+<div class="past-section">
+  <div class="past-inner">
+    <div class="section-label">History</div>
+    <div class="events-title">PAST SHOWS</div>
+    <div class="past-grid">
+      <div class="past-card">
+        <div class="past-card-date">2025</div>
+        <div class="past-card-title">DEBUT PERFORMANCE</div>
+        <div class="past-card-venue">Benin City, Nigeria</div>
+      </div>
+      <div class="past-card">
+        <div class="past-card-date">2025</div>
+        <div class="past-card-title">STUDIO SHOWCASE</div>
+        <div class="past-card-venue">Private Event</div>
+      </div>
+      <div class="past-card">
+        <div class="past-card-date">More coming</div>
+        <div class="past-card-title">STAY TUNED</div>
+        <div class="past-card-venue">Everywhere</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING CTA -->
+<div class="booking-cta">
+  <div class="booking-text">
+    <div class="section-label">Bookings</div>
+    <h2>BOOK MOONKHID<br>MUSIC</h2>
+    <p>Available for shows, events, corporate performances, festivals and collaborations. Get in touch with the booking team directly.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary">Book Now</a>
+      <a href="https://wa.me/message/moonkhid" target="_blank" class="btn-outline">WhatsApp</a>
+    </div>
+  </div>
+  <div class="booking-photo">
+    <img src="images/moonkhid-14.jpg" alt="MoonkhidMusic Live">
+  </div>
+</div>
+
+<!-- NOTIFY -->
+<div class="notify" id="notify">
+  <h2>NEVER MISS A SHOW</h2>
+  <p>Drop your email and be the first to know when MoonkhidMusic announces tour dates near you.</p>
+  <form class="notify-form" action="https://formspree.io/f/mpqbojqv" method="POST" onsubmit="handleNotify(event)">
+    <input type="email" name="email" class="notify-input" placeholder="your@email.com" required>
+    <button type="submit" class="btn-notify" id="notifyBtn">Notify Me</button>
+  </form>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">BLIZCITY</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="music.html">Music</a>
+      <a href="videos.html">Videos</a>
+      <a href="events.html">Shows</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 BLIZCITY &middot; MoonkhidMusic &middot; All rights reserved</div>
+</footer>
+
+<script>
+function handleNotify(e) {
+  e.preventDefault();
+  const btn = document.getElementById('notifyBtn');
+  fetch(e.target.action, {
+    method: 'POST',
+    body: new FormData(e.target),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      btn.textContent = 'Done!';
+      btn.style.background = '#27AE60';
+      e.target.reset();
+      setTimeout(() => { btn.textContent = 'Notify Me'; btn.style.background = ''; }, 3000);
+    }
+  });
+}
+</script>
+
+</body>
+</html>

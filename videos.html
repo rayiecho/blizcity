@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoonkhidMusic Videos — Watch music videos, behind the scenes and live performances.">
+  <title>MoonkhidMusic — Videos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0F0800;--bg2:#1A0F00;--bg3:#241500;--gold:#D4A84B;--gold2:#E8C97A;--brown:#3D2000;--cream:#F5ECD7;--gray:#8A7A60;--white:#FDFAF5;--border:rgba(212,168,75,0.15);--border2:rgba(212,168,75,0.08);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(15,8,0,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
+    .nav-logo{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--gold);text-decoration:none;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{color:rgba(245,236,215,0.75);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.5px;transition:color 0.3s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-stream{background:var(--gold);color:var(--bg);padding:0.55rem 1.5rem;border-radius:2px;font-size:0.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+    .nav-stream:hover{background:var(--gold2);}
+    .section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+    .section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+    .btn-primary{background:var(--gold);color:var(--bg);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-primary:hover{background:var(--gold2);}
+    .btn-outline{border:1px solid rgba(245,236,215,0.3);color:var(--cream);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* PAGE HERO */
+    .page-hero{background:url('images/moonkhid-7.jpg') center center / cover no-repeat;padding:10rem 3rem 6rem;position:relative;border-bottom:1px solid var(--border2);}
+    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(15,8,0,0.75) 0%,rgba(15,8,0,0.45) 50%,rgba(15,8,0,0.15) 100%);}
+    .page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+    .page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,6rem);color:#FFFFFF;letter-spacing:2px;text-shadow:0 3px 25px rgba(0,0,0,0.8);}
+    .page-hero h1 span{color:var(--gold);}
+    .page-hero-sub{font-size:1.05rem;color:#FFFFFF;margin-top:1rem;max-width:500px;line-height:1.9;text-shadow:0 2px 15px rgba(0,0,0,0.9);font-weight:500;}
+
+    /* FEATURED VIDEO */
+    .featured-video{padding:6rem 3rem;max-width:1200px;margin:0 auto;border-bottom:1px solid var(--border2);}
+    .featured-video-title{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:1px;margin-top:0.75rem;margin-bottom:2.5rem;}
+    .video-embed{width:100%;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:var(--bg3);border:1px solid var(--border);}
+    .video-embed iframe{width:100%;height:100%;border:none;}
+    .video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;min-height:400px;}
+    .play-btn{width:80px;height:80px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;text-decoration:none;}
+    .play-btn:hover{background:var(--gold2);transform:scale(1.05);}
+    .play-btn svg{width:32px;height:32px;fill:var(--bg);margin-left:4px;}
+    .video-placeholder p{font-size:0.95rem;color:var(--gray);text-align:center;line-height:1.7;}
+    .video-placeholder a{color:var(--gold);font-weight:600;text-decoration:none;}
+
+    /* VIDEO GRID */
+    .videos-section{background:var(--bg2);padding:6rem 3rem;border-bottom:1px solid var(--border2);}
+    .videos-inner{max-width:1200px;margin:0 auto;}
+    .videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+    .video-card{background:var(--bg3);border:1px solid var(--border2);border-radius:4px;overflow:hidden;transition:border-color 0.3s;}
+    .video-card:hover{border-color:var(--border);}
+    .video-thumb{width:100%;aspect-ratio:16/9;background:var(--brown);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer;}
+    .video-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;}
+    .video-thumb-overlay{position:absolute;inset:0;background:rgba(15,8,0,0.4);display:flex;align-items:center;justify-content:center;transition:background 0.3s;}
+    .video-card:hover .video-thumb-overlay{background:rgba(15,8,0,0.2);}
+    .video-thumb-play{width:52px;height:52px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+    .video-thumb-play svg{width:20px;height:20px;fill:var(--bg);margin-left:3px;}
+    .video-thumb-ph{width:100%;height:100%;min-height:160px;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1.2rem;color:rgba(212,168,75,0.2);letter-spacing:2px;}
+    .video-info{padding:1.25rem;}
+    .video-label{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.4rem;}
+    .video-title{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;}
+    .video-meta{font-size:0.78rem;color:var(--gray);}
+    .video-link{display:inline-block;margin-top:0.75rem;font-size:0.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;}
+
+    /* YOUTUBE CTA */
+    .yt-cta{padding:5rem 3rem;text-align:center;}
+    .yt-cta h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:2px;margin-bottom:1rem;}
+    .yt-cta p{color:rgba(245,236,215,0.55);max-width:500px;margin:0 auto 2rem;line-height:1.8;}
+    .yt-btn{display:inline-flex;align-items:center;gap:0.75rem;background:#FF0000;color:white;padding:1rem 2.5rem;border-radius:2px;font-size:0.88rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:opacity 0.3s;}
+    .yt-btn:hover{opacity:0.88;}
+    .yt-btn svg{width:20px;height:20px;fill:white;}
+
+    footer{background:var(--bg);padding:3rem;border-top:1px solid var(--border2);}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+    .footer-logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);}
+    .footer-links{display:flex;gap:2rem;}
+    .footer-links a{font-size:0.82rem;color:rgba(245,236,215,0.45);text-decoration:none;transition:color 0.3s;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-copy{font-size:0.75rem;color:rgba(245,236,215,0.25);margin-top:1.5rem;text-align:center;max-width:1200px;margin-left:auto;margin-right:auto;padding-top:1.5rem;border-top:1px solid var(--border2);}
+
+    @media(max-width:1024px){.videos-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.featured-video,.videos-section,.yt-cta{padding:4rem 1.5rem;}.videos-grid{grid-template-columns:1fr;}.footer-inner{flex-direction:column;text-align:center;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">BLIZCITY</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="music.html">Music</a></li>
+    <li><a href="videos.html" class="active">Videos</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-stream">Stream Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Watch</div>
+    <h1>THE<br><span>VIDEOS</span></h1>
+    <p class="page-hero-sub">Music videos, behind the scenes and live moments from MoonkhidMusic.</p>
+  </div>
+</div>
+
+<!-- FEATURED VIDEO -->
+<div class="featured-video">
+  <div class="section-label">Featured</div>
+  <div class="featured-video-title">LATEST RELEASE</div>
+  <div class="video-embed">
+    <div class="video-placeholder">
+      <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank" class="play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </a>
+      <p>Music video for <strong style="color:var(--gold);">Sincere</strong> coming soon.<br>
+      <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank">Subscribe on YouTube</a> to be notified the moment it drops.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO GRID -->
+<div class="videos-section">
+  <div class="videos-inner">
+    <div class="section-label">All Videos</div>
+    <div class="featured-video-title">WATCH MORE</div>
+    <div class="videos-grid">
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-ph">SINCERE</div>
+          <div class="video-thumb-overlay">
+            <div class="video-thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Music Video &middot; Coming Soon</div>
+          <div class="video-title">Sincere — Official Video</div>
+          <div class="video-meta">MoonkhidMusic &middot; 2026</div>
+          <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank" class="video-link">Watch on YouTube &rarr;</a>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <img src="images/moonkhid-3.jpg" alt="Behind the Scenes">
+          <div class="video-thumb-overlay">
+            <div class="video-thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Behind the Scenes</div>
+          <div class="video-title">In the Studio</div>
+          <div class="video-meta">MoonkhidMusic &middot; 2026</div>
+          <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank" class="video-link">Watch &rarr;</a>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <img src="images/moonkhid-6.jpg" alt="Live Performance">
+          <div class="video-thumb-overlay">
+            <div class="video-thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live Performance</div>
+          <div class="video-title">Live Sessions</div>
+          <div class="video-meta">MoonkhidMusic &middot; 2026</div>
+          <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank" class="video-link">Watch &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YOUTUBE CTA -->
+<div class="yt-cta">
+  <h2>MORE ON YOUTUBE</h2>
+  <p>Subscribe to the MoonkhidMusic YouTube channel for new videos, behind the scenes and live performances.</p>
+  <a href="https://www.youtube.com/@Moonkhidmusic" target="_blank" class="yt-btn">
+    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    Subscribe on YouTube
+  </a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">BLIZCITY</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="music.html">Music</a>
+      <a href="videos.html">Videos</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 BLIZCITY &middot; MoonkhidMusic &middot; All rights reserved</div>
+</footer>
+
+</body>
+</html>
