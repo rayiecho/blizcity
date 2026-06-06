@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>BLIZCITY Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0F0800;--bg2:#1A0F00;--bg3:#241500;--gold:#D4A84B;--gold2:#E8C97A;--cream:#F5ECD7;--gray:#8A7A60;--white:#FDFAF5;--border:rgba(212,168,75,0.15);--border2:rgba(212,168,75,0.08);--green:#27AE60;--red:#E63329;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;}
+
+    /* LOGIN */
+    #screen-login{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999;}
+    .login-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:3rem;width:100%;max-width:400px;text-align:center;}
+    .login-logo{font-family:'Anton',sans-serif;font-size:2rem;letter-spacing:3px;color:var(--gold);margin-bottom:0.5rem;}
+    .login-sub{font-size:0.82rem;color:var(--gray);margin-bottom:2rem;letter-spacing:1px;}
+    .login-input{width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--cream);padding:0.85rem 1.25rem;border-radius:4px;font-family:inherit;font-size:0.92rem;outline:none;margin-bottom:1rem;transition:border-color 0.2s;}
+    .login-input:focus{border-color:var(--gold);}
+    .login-btn{width:100%;padding:1rem;background:var(--gold);color:var(--bg);font-family:inherit;font-size:0.88rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:background 0.3s;}
+    .login-btn:hover{background:var(--gold2);}
+    .login-error{font-size:0.82rem;color:var(--red);margin-top:0.75rem;display:none;}
+
+    /* DASHBOARD */
+    #screen-dashboard{display:none;}
+    .topbar{background:var(--bg2);border-bottom:1px solid var(--border2);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+    .topbar-logo{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--gold);}
+    .topbar-badge{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);}
+    .topbar-logout{background:transparent;border:1px solid var(--border);color:var(--gray);padding:0.4rem 1rem;border-radius:4px;font-family:inherit;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}
+    .topbar-logout:hover{border-color:var(--red);color:var(--red);}
+    .admin-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 60px);}
+    .sidebar{background:var(--bg2);border-right:1px solid var(--border2);padding:1.5rem 0;}
+    .sidebar-item{display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1.5rem;cursor:pointer;transition:all 0.2s;font-size:0.88rem;font-weight:500;color:rgba(245,236,215,0.65);border-left:2px solid transparent;}
+    .sidebar-item:hover{color:var(--cream);background:rgba(212,168,75,0.05);}
+    .sidebar-item.active{color:var(--gold);border-left-color:var(--gold);background:rgba(212,168,75,0.08);}
+    .sidebar-item svg{width:18px;height:18px;fill:currentColor;flex-shrink:0;}
+    .content{padding:2rem;background:var(--bg);}
+
+    /* SECTION CARD */
+    .section-card{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:2rem;margin-bottom:1.5rem;}
+    .section-card h2{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--white);margin-bottom:0.25rem;}
+    .section-card p{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+    .form-group{margin-bottom:1rem;}
+    .form-group label{display:block;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:0.4rem;}
+    .form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--cream);padding:0.75rem 1rem;border-radius:4px;font-family:inherit;font-size:0.88rem;outline:none;transition:border-color 0.2s;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);}
+    .form-group select option{background:var(--bg2);}
+    .form-group textarea{resize:vertical;min-height:80px;}
+    .btn-save{background:var(--gold);color:var(--bg);padding:0.75rem 2rem;border-radius:4px;font-family:inherit;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.3s;}
+    .btn-save:hover{background:var(--gold2);}
+    .btn-delete{background:rgba(230,51,41,0.1);color:var(--red);border:1px solid rgba(230,51,41,0.3);padding:0.5rem 1rem;border-radius:4px;font-family:inherit;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+    .btn-delete:hover{background:rgba(230,51,41,0.2);}
+
+    /* ITEMS LIST */
+    .items-list{margin-top:2rem;}
+    .items-list h3{font-size:0.82rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;}
+    .item-card{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:1rem 1.25rem;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .item-info{}
+    .item-title{font-size:0.92rem;font-weight:600;color:var(--white);}
+    .item-meta{font-size:0.75rem;color:var(--gray);margin-top:0.2rem;}
+    .item-actions{display:flex;gap:0.5rem;flex-shrink:0;}
+    .empty-state{text-align:center;padding:2rem;color:var(--gray);font-size:0.85rem;}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);padding:0.85rem 2rem;border-radius:50px;font-size:0.88rem;font-weight:700;display:none;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+    .toast.success{background:var(--green);color:white;}
+    .toast.error{background:var(--red);color:white;}
+
+    /* STATS */
+    .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2rem;}
+    .stat-card{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:1.5rem;text-align:center;}
+    .stat-num{font-family:'Anton',sans-serif;font-size:2rem;color:var(--gold);letter-spacing:1px;}
+    .stat-label{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-top:0.25rem;}
+
+    @media(max-width:768px){.admin-layout{grid-template-columns:1fr;}.sidebar{display:flex;overflow-x:auto;padding:0.5rem;border-right:none;border-bottom:1px solid var(--border2);}.sidebar-item{flex-direction:column;gap:0.25rem;font-size:0.7rem;padding:0.5rem 0.75rem;border-left:none;border-bottom:2px solid transparent;white-space:nowrap;}.sidebar-item.active{border-left:none;border-bottom-color:var(--gold);}.stats-grid{grid-template-columns:repeat(2,1fr);}.form-row{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="screen-login">
+  <div class="login-box">
+    <div class="login-logo">BLIZCITY</div>
+    <div class="login-sub">Admin Panel</div>
+    <input type="email" class="login-input" id="login-email" placeholder="Email address">
+    <input type="password" class="login-input" id="login-pass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="login-error">Incorrect credentials</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="screen-dashboard">
+  <div class="topbar">
+    <div>
+      <div class="topbar-logo">BLIZCITY ADMIN</div>
+      <div class="topbar-badge">Content Management</div>
+    </div>
+    <button class="topbar-logout" onclick="doLogout()">Sign Out</button>
+  </div>
+  <div class="admin-layout">
+    <div class="sidebar">
+      <div class="sidebar-item active" onclick="showSection('overview')">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        Overview
+      </div>
+      <div class="sidebar-item" onclick="showSection('music')">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        Music
+      </div>
+      <div class="sidebar-item" onclick="showSection('events')">
+        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        Events
+      </div>
+      <div class="sidebar-item" onclick="showSection('gallery')">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        Gallery
+      </div>
+      <div class="sidebar-item" onclick="showSection('videos')">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        Videos
+      </div>
+      <div class="sidebar-item" onclick="showSection('store')">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.1 17 7 17h11v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.45 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Store
+      </div>
+    </div>
+    <div class="content" id="admin-content">
+      <!-- Content loads here -->
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAj_Q7_UJ_yTGegtkPJ3A1kFxdwig79ADI",
+  authDomain: "blizcity-music.firebaseapp.com",
+  projectId: "blizcity-music",
+  storageBucket: "blizcity-music.firebasestorage.app",
+  messagingSenderId: "271044409597",
+  appId: "1:271044409597:web:31cdad1e4a5cbde6a42694"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+window._db = db;
+window._serverTimestamp = serverTimestamp;
+
+// AUTH
+onAuthStateChanged(auth, user => {
+  if (user) {
+    document.getElementById('screen-login').style.display = 'none';
+    document.getElementById('screen-dashboard').style.display = 'block';
+    showSection('overview');
+  } else {
+    document.getElementById('screen-login').style.display = 'flex';
+    document.getElementById('screen-dashboard').style.display = 'none';
+  }
+});
+
+window.doLogin = async function() {
+  const email = document.getElementById('login-email').value.trim();
+  const pass = document.getElementById('login-pass').value;
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch(e) {
+    document.getElementById('login-error').style.display = 'block';
+  }
+};
+
+window.doLogout = async function() {
+  await signOut(auth);
+};
+
+// TOAST
+window.showToast = function(msg, type='success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type}`;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+};
+
+// SECTIONS
+window.showSection = function(section) {
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  document.querySelector(`[onclick="showSection('${section}')"]`).classList.add('active');
+  const c = document.getElementById('admin-content');
+
+  if (section === 'overview') loadOverview(c);
+  else if (section === 'music') loadMusic(c);
+  else if (section === 'events') loadEvents(c);
+  else if (section === 'gallery') loadGallery(c);
+  else if (section === 'videos') loadVideos(c);
+  else if (section === 'store') loadStore(c);
+};
+
+// OVERVIEW
+async function loadOverview(c) {
+  const collections = ['music','events','gallery','videos','store'];
+  const counts = {};
+  for (const col of collections) {
+    const snap = await getDocs(collection(db, col)).catch(() => ({size:0}));
+    counts[col] = snap.size;
+  }
+  c.innerHTML = `
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">${counts.music}</div><div class="stat-label">Songs</div></div>
+      <div class="stat-card"><div class="stat-num">${counts.events}</div><div class="stat-label">Events</div></div>
+      <div class="stat-card"><div class="stat-num">${counts.gallery}</div><div class="stat-label">Photos</div></div>
+      <div class="stat-card"><div class="stat-num">${counts.videos}</div><div class="stat-label">Videos</div></div>
+      <div class="stat-card"><div class="stat-num">${counts.store}</div><div class="stat-label">Products</div></div>
+    </div>
+    <div class="section-card">
+      <h2>Welcome to BLIZCITY Admin</h2>
+      <p>Manage all content from here — music, events, gallery, videos and store. Changes appear on the website immediately.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;">
+        <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:1.25rem;cursor:pointer;" onclick="showSection('music')">
+          <div style="font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Quick Action</div>
+          <div style="font-weight:600;color:var(--white);">Add New Song</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:1.25rem;cursor:pointer;" onclick="showSection('events')">
+          <div style="font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Quick Action</div>
+          <div style="font-weight:600;color:var(--white);">Add New Event</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:1.25rem;cursor:pointer;" onclick="showSection('gallery')">
+          <div style="font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Quick Action</div>
+          <div style="font-weight:600;color:var(--white);">Add Photo</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+// MUSIC
+async function loadMusic(c) {
+  const snap = await getDocs(query(collection(db,'music'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  let items = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    items += `<div class="item-card">
+      <div class="item-info">
+        <div class="item-title">${r.title}</div>
+        <div class="item-meta">${r.genre} · ${r.year} · <a href="${r.streamLink}" target="_blank" style="color:var(--gold);">Stream Link</a></div>
+      </div>
+      <div class="item-actions">
+        <button class="btn-delete" onclick="deleteItem('music','${d.id}',loadMusicSection)">Delete</button>
+      </div>
+    </div>`;
+  });
+  c.innerHTML = `
+    <div class="section-card">
+      <h2>Add New Song</h2>
+      <p>Add a new single or album to the music page.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Song Title</label><input type="text" id="m-title" placeholder="e.g. Sincere"></div>
+        <div class="form-group"><label>Artist</label><input type="text" id="m-artist" value="MoonkhidMusic"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Genre</label>
+          <select id="m-genre"><option>Afrobeats</option><option>Afropop</option><option>R&B</option><option>Gospel</option><option>Hip-Hop</option></select>
+        </div>
+        <div class="form-group"><label>Year</label><input type="text" id="m-year" placeholder="2026"></div>
+      </div>
+      <div class="form-group"><label>Streaming Link (Spotify/DistroKid/YouTube)</label><input type="url" id="m-link" placeholder="https://..."></div>
+      <div class="form-group"><label>Cover Image URL</label><input type="url" id="m-img" placeholder="https://... (or leave blank for default)"></div>
+      <div class="form-group"><label>Type</label>
+        <select id="m-type"><option>Single</option><option>EP</option><option>Album</option></select>
+      </div>
+      <button class="btn-save" onclick="saveMusic()">Save Song</button>
+    </div>
+    <div class="items-list">
+      <h3>All Songs (${snap.docs.length})</h3>
+      ${items || '<div class="empty-state">No songs added yet</div>'}
+    </div>`;
+  window.loadMusicSection = () => loadMusic(c);
+}
+
+window.saveMusic = async function() {
+  const title = document.getElementById('m-title').value.trim();
+  const artist = document.getElementById('m-artist').value.trim();
+  const genre = document.getElementById('m-genre').value;
+  const year = document.getElementById('m-year').value.trim();
+  const streamLink = document.getElementById('m-link').value.trim();
+  const coverImg = document.getElementById('m-img').value.trim();
+  const type = document.getElementById('m-type').value;
+  if (!title || !streamLink) return showToast('Title and streaming link required', 'error');
+  await addDoc(collection(db,'music'), { title, artist, genre, year, streamLink, coverImg, type, createdAt: serverTimestamp() });
+  showToast('Song added!');
+  loadMusic(document.getElementById('admin-content'));
+};
+
+// EVENTS
+async function loadEvents(c) {
+  const snap = await getDocs(query(collection(db,'events'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  let items = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    items += `<div class="item-card">
+      <div class="item-info">
+        <div class="item-title">${r.title}</div>
+        <div class="item-meta">${r.date} · ${r.venue} · ${r.city}</div>
+      </div>
+      <div class="item-actions">
+        <button class="btn-delete" onclick="deleteItem('events','${d.id}',loadEventsSection)">Delete</button>
+      </div>
+    </div>`;
+  });
+  c.innerHTML = `
+    <div class="section-card">
+      <h2>Add New Event</h2>
+      <p>Add an upcoming show, concert or appearance.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Event Title</label><input type="text" id="e-title" placeholder="e.g. Sincere Launch Night"></div>
+        <div class="form-group"><label>Date</label><input type="date" id="e-date"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Venue</label><input type="text" id="e-venue" placeholder="e.g. The Arena"></div>
+        <div class="form-group"><label>City & Country</label><input type="text" id="e-city" placeholder="e.g. Lagos, Nigeria"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Ticket Link (optional)</label><input type="url" id="e-ticket" placeholder="https://..."></div>
+        <div class="form-group"><label>Status</label>
+          <select id="e-status"><option>Upcoming</option><option>Sold Out</option><option>Free</option><option>Cancelled</option></select>
+        </div>
+      </div>
+      <button class="btn-save" onclick="saveEvent()">Save Event</button>
+    </div>
+    <div class="items-list">
+      <h3>All Events (${snap.docs.length})</h3>
+      ${items || '<div class="empty-state">No events added yet</div>'}
+    </div>`;
+  window.loadEventsSection = () => loadEvents(c);
+}
+
+window.saveEvent = async function() {
+  const title = document.getElementById('e-title').value.trim();
+  const date = document.getElementById('e-date').value;
+  const venue = document.getElementById('e-venue').value.trim();
+  const city = document.getElementById('e-city').value.trim();
+  const ticketLink = document.getElementById('e-ticket').value.trim();
+  const status = document.getElementById('e-status').value;
+  if (!title || !date || !venue) return showToast('Title, date and venue required', 'error');
+  await addDoc(collection(db,'events'), { title, date, venue, city, ticketLink, status, createdAt: serverTimestamp() });
+  showToast('Event added!');
+  loadEvents(document.getElementById('admin-content'));
+};
+
+// GALLERY
+async function loadGallery(c) {
+  const snap = await getDocs(query(collection(db,'gallery'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  let items = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    items += `<div class="item-card">
+      <div class="item-info">
+        <div class="item-title">${r.caption || 'Photo'}</div>
+        <div class="item-meta"><a href="${r.imageUrl}" target="_blank" style="color:var(--gold);">View Image</a></div>
+      </div>
+      <div class="item-actions">
+        <button class="btn-delete" onclick="deleteItem('gallery','${d.id}',loadGallerySection)">Delete</button>
+      </div>
+    </div>`;
+  });
+  c.innerHTML = `
+    <div class="section-card">
+      <h2>Add Photo</h2>
+      <p>Add a photo URL to the gallery. Upload your photo to Google Drive or ImgBB first, then paste the link here.</p>
+      <div class="form-group"><label>Image URL</label><input type="url" id="g-url" placeholder="https://... (Google Drive, ImgBB, etc.)"></div>
+      <div class="form-group"><label>Caption (optional)</label><input type="text" id="g-caption" placeholder="e.g. Studio Session 2026"></div>
+      <div class="form-group"><label>Category</label>
+        <select id="g-cat"><option>Photo Shoot</option><option>Behind the Scenes</option><option>Live Performance</option><option>Events</option><option>General</option></select>
+      </div>
+      <div style="background:rgba(212,168,75,0.08);border:1px solid var(--border);border-radius:4px;padding:1rem;margin-bottom:1rem;font-size:0.82rem;color:var(--gray);">
+        Tip: Upload to <a href="https://imgbb.com" target="_blank" style="color:var(--gold);">imgbb.com</a> (free) and paste the direct image link here.
+      </div>
+      <button class="btn-save" onclick="saveGallery()">Add Photo</button>
+    </div>
+    <div class="items-list">
+      <h3>All Photos (${snap.docs.length})</h3>
+      ${items || '<div class="empty-state">No photos added yet</div>'}
+    </div>`;
+  window.loadGallerySection = () => loadGallery(c);
+}
+
+window.saveGallery = async function() {
+  const imageUrl = document.getElementById('g-url').value.trim();
+  const caption = document.getElementById('g-caption').value.trim();
+  const category = document.getElementById('g-cat').value;
+  if (!imageUrl) return showToast('Image URL required', 'error');
+  await addDoc(collection(db,'gallery'), { imageUrl, caption, category, createdAt: serverTimestamp() });
+  showToast('Photo added!');
+  loadGallery(document.getElementById('admin-content'));
+};
+
+// VIDEOS
+async function loadVideos(c) {
+  const snap = await getDocs(query(collection(db,'videos'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  let items = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    items += `<div class="item-card">
+      <div class="item-info">
+        <div class="item-title">${r.title}</div>
+        <div class="item-meta">${r.type} · <a href="https://youtube.com/watch?v=${r.youtubeId}" target="_blank" style="color:var(--gold);">Watch on YouTube</a></div>
+      </div>
+      <div class="item-actions">
+        <button class="btn-delete" onclick="deleteItem('videos','${d.id}',loadVideosSection)">Delete</button>
+      </div>
+    </div>`;
+  });
+  c.innerHTML = `
+    <div class="section-card">
+      <h2>Add Video</h2>
+      <p>Add a YouTube video. Paste the YouTube video ID (the part after v= in the URL).</p>
+      <div class="form-row">
+        <div class="form-group"><label>Video Title</label><input type="text" id="v-title" placeholder="e.g. Sincere — Official Video"></div>
+        <div class="form-group"><label>YouTube Video ID</label><input type="text" id="v-id" placeholder="e.g. g8nf5ue90Ys"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Type</label>
+          <select id="v-type"><option>Music Video</option><option>Behind the Scenes</option><option>Live Performance</option><option>Interview</option><option>Lyric Video</option></select>
+        </div>
+        <div class="form-group"><label>Year</label><input type="text" id="v-year" placeholder="2026"></div>
+      </div>
+      <button class="btn-save" onclick="saveVideo()">Add Video</button>
+    </div>
+    <div class="items-list">
+      <h3>All Videos (${snap.docs.length})</h3>
+      ${items || '<div class="empty-state">No videos added yet</div>'}
+    </div>`;
+  window.loadVideosSection = () => loadVideos(c);
+}
+
+window.saveVideo = async function() {
+  const title = document.getElementById('v-title').value.trim();
+  const youtubeId = document.getElementById('v-id').value.trim().replace('https://www.youtube.com/watch?v=','').replace('https://youtu.be/','');
+  const type = document.getElementById('v-type').value;
+  const year = document.getElementById('v-year').value.trim();
+  if (!title || !youtubeId) return showToast('Title and YouTube ID required', 'error');
+  await addDoc(collection(db,'videos'), { title, youtubeId, type, year, createdAt: serverTimestamp() });
+  showToast('Video added!');
+  loadVideos(document.getElementById('admin-content'));
+};
+
+// STORE
+async function loadStore(c) {
+  const snap = await getDocs(query(collection(db,'store'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  let items = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    items += `<div class="item-card">
+      <div class="item-info">
+        <div class="item-title">${r.name}</div>
+        <div class="item-meta">${r.category} · ₦${r.priceNGN} · ${r.status}</div>
+      </div>
+      <div class="item-actions">
+        <button class="btn-delete" onclick="deleteItem('store','${d.id}',loadStoreSection)">Delete</button>
+      </div>
+    </div>`;
+  });
+  c.innerHTML = `
+    <div class="section-card">
+      <h2>Add Product</h2>
+      <p>Add merch, digital downloads or any item to the store.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Product Name</label><input type="text" id="s-name" placeholder="e.g. Sincere T-Shirt"></div>
+        <div class="form-group"><label>Category</label>
+          <select id="s-cat"><option>Clothing</option><option>Print</option><option>Digital Download</option><option>Accessories</option><option>Bundle</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Price (₦ Naira)</label><input type="number" id="s-ngn" placeholder="15000"></div>
+        <div class="form-group"><label>Status</label>
+          <select id="s-status"><option>Available</option><option>Coming Soon</option><option>Sold Out</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Product Image URL</label><input type="url" id="s-img" placeholder="https://..."></div>
+      <div class="form-group"><label>Buy Link (optional)</label><input type="url" id="s-link" placeholder="https://... (Paystack, Flutterwave, etc.)"></div>
+      <div class="form-group"><label>Description</label><textarea id="s-desc" placeholder="Short product description..."></textarea></div>
+      <button class="btn-save" onclick="saveStore()">Add Product</button>
+    </div>
+    <div class="items-list">
+      <h3>All Products (${snap.docs.length})</h3>
+      ${items || '<div class="empty-state">No products added yet</div>'}
+    </div>`;
+  window.loadStoreSection = () => loadStore(c);
+}
+
+window.saveStore = async function() {
+  const name = document.getElementById('s-name').value.trim();
+  const category = document.getElementById('s-cat').value;
+  const priceNGN = document.getElementById('s-ngn').value.trim();
+  const status = document.getElementById('s-status').value;
+  const imageUrl = document.getElementById('s-img').value.trim();
+  const buyLink = document.getElementById('s-link').value.trim();
+  const description = document.getElementById('s-desc').value.trim();
+  if (!name || !priceNGN) return showToast('Name and price required', 'error');
+  await addDoc(collection(db,'store'), { name, category, priceNGN, status, imageUrl, buyLink, description, createdAt: serverTimestamp() });
+  showToast('Product added!');
+  loadStore(document.getElementById('admin-content'));
+};
+
+// DELETE
+window.deleteItem = async function(col, id, reload) {
+  if (!confirm('Delete this item?')) return;
+  await deleteDoc(doc(db, col, id));
+  showToast('Deleted!');
+  reload();
+};
+</script>
+</body>
+</html>
