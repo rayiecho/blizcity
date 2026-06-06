@@ -132,7 +132,7 @@
   <div class="events-title">UPCOMING SHOWS</div>
 
   <!-- No events state — replace with real events when available -->
-  <div class="no-events">
+  <div class="no-events" id="no-events-state">
     <h3>TOUR DATES COMING</h3>
     <p>No shows scheduled yet — but MoonkhidMusic is coming to a city near you soon. Sign up below to be the first to know.</p>
     <a href="#notify" class="btn-primary">Get Notified</a>
@@ -157,6 +157,7 @@
   </div>
   -->
 </div>
+<div id="events-list"></div>
 
 <!-- PAST EVENTS -->
 <div class="past-section">
@@ -244,5 +245,47 @@ function handleNotify(e) {
 }
 </script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app = initializeApp({
+  apiKey: "AIzaSyAj_Q7_UJ_yTGegtkPJ3A1kFxdwig79ADI",
+  authDomain: "blizcity-music.firebaseapp.com",
+  projectId: "blizcity-music",
+  storageBucket: "blizcity-music.firebasestorage.app",
+  messagingSenderId: "271044409597",
+  appId: "1:271044409597:web:31cdad1e4a5cbde6a42694"
+});
+const db = getFirestore(app);
+async function loadEvents() {
+  const snap = await getDocs(query(collection(db,'events'), orderBy('date','asc'))).catch(() => ({docs:[]}));
+  if (snap.docs.length === 0) return;
+  const container = document.getElementById('events-list');
+  if (!container) return;
+  let html = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    const date = new Date(r.date);
+    const month = date.toLocaleString('default', {month:'short'}).toUpperCase();
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const statusClass = r.status === 'Sold Out' ? 'soldout' : r.status === 'Free' ? 'free' : 'upcoming';
+    const ticketBtn = r.ticketLink ? `<a href="${r.ticketLink}" target="_blank" class="btn-ticket">Get Tickets</a>` : `<span class="btn-ticket disabled">TBA</span>`;
+    html += `<div class="event-card">
+      <div class="event-date"><div class="event-month">${month}</div><div class="event-day">${day}</div><div class="event-year">${year}</div></div>
+      <div class="event-info">
+        <div class="event-title">${r.title}</div>
+        <div class="event-venue">${r.venue}</div>
+        <div class="event-location">${r.city}</div>
+        <span class="event-status ${statusClass}">${r.status}</span>
+      </div>
+      <div class="event-action">${ticketBtn}</div>
+    </div>`;
+  });
+  container.innerHTML = html;
+  document.getElementById('no-events-state').style.display = 'none';
+}
+loadEvents();
+</script>
 </body>
 </html>

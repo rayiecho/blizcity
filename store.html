@@ -141,7 +141,7 @@
 <div class="merch-section">
   <div class="section-label">Merchandise</div>
   <div class="section-title">OFFICIAL MERCH</div>
-  <div class="merch-grid">
+  <div class="merch-grid" id="merch-grid">
     <div class="merch-card">
       <div class="merch-img">
         <div class="merch-img-ph">
@@ -297,5 +297,43 @@ function handleNotify(e) {
 }
 </script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app = initializeApp({
+  apiKey: "AIzaSyAj_Q7_UJ_yTGegtkPJ3A1kFxdwig79ADI",
+  authDomain: "blizcity-music.firebaseapp.com",
+  projectId: "blizcity-music",
+  storageBucket: "blizcity-music.firebasestorage.app",
+  messagingSenderId: "271044409597",
+  appId: "1:271044409597:web:31cdad1e4a5cbde6a42694"
+});
+const db = getFirestore(app);
+async function loadStore() {
+  const snap = await getDocs(query(collection(db,'store'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  if (snap.docs.length === 0) return;
+  const grid = document.getElementById('merch-grid');
+  if (!grid) return;
+  let html = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    const img = r.imageUrl ? `<img src="${r.imageUrl}" alt="${r.name}" loading="lazy">` : `<div class="merch-img-ph"><span>${r.category}</span></div>`;
+    const btn = r.status === 'Available' && r.buyLink
+      ? `<a href="${r.buyLink}" target="_blank" class="btn-buy">Buy Now</a>`
+      : `<button class="btn-buy coming" onclick="showToast('${r.status}')">${r.status}</button>`;
+    html += `<div class="merch-card">
+      <div class="merch-img">${img}<span class="merch-badge">${r.status}</span></div>
+      <div class="merch-info">
+        <div class="merch-category">${r.category}</div>
+        <div class="merch-name">${r.name}</div>
+        <div class="merch-desc">${r.description}</div>
+        <div class="merch-footer"><div class="merch-price">₦${r.priceNGN}</div>${btn}</div>
+      </div>
+    </div>`;
+  });
+  grid.innerHTML = html;
+}
+loadStore();
+</script>
 </body>
 </html>

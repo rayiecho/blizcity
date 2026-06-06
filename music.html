@@ -159,7 +159,7 @@
   <div class="releases-inner">
     <div class="section-label">All Releases</div>
     <div class="section-title">DISCOGRAPHY</div>
-    <div class="releases-grid">
+    <div class="releases-grid" id="releases-grid">
       <div class="release-card">
         <div class="release-art">
           <img loading="lazy" src="images/moonkhid-1.jpg" alt="Sincere">
@@ -225,5 +225,39 @@
   <div class="footer-copy">&copy; 2026 BLIZCITY &middot; MoonkhidMusic &middot; All rights reserved</div>
 </footer>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyAj_Q7_UJ_yTGegtkPJ3A1kFxdwig79ADI",
+  authDomain: "blizcity-music.firebaseapp.com",
+  projectId: "blizcity-music",
+  storageBucket: "blizcity-music.firebasestorage.app",
+  messagingSenderId: "271044409597",
+  appId: "1:271044409597:web:31cdad1e4a5cbde6a42694"
+});
+const db = getFirestore(app);
+
+async function loadMusic() {
+  const snap = await getDocs(query(collection(db,'music'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  if (snap.docs.length === 0) return;
+  const grid = document.getElementById('releases-grid');
+  if (!grid) return;
+  let html = '';
+  snap.docs.forEach((d, i) => {
+    const r = d.data();
+    const img = r.coverImg ? `<img src="${r.coverImg}" alt="${r.title}">` : `<div class="release-art-ph">${r.title.substring(0,8).toUpperCase()}</div>`;
+    html += `<div class="release-card">
+      <div class="release-art">${img}${i===0?'<span class="release-new">Latest</span>':''}</div>
+      <div class="release-title">${r.title}</div>
+      <div class="release-meta">${r.type} · ${r.year} · ${r.genre}</div>
+      <a href="${r.streamLink}" target="_blank" class="release-link">Stream Now →</a>
+    </div>`;
+  });
+  grid.innerHTML = html;
+}
+loadMusic();
+</script>
 </body>
 </html>

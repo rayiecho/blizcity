@@ -113,7 +113,7 @@
 <div class="featured-video">
   <div class="section-label">Featured</div>
   <div class="featured-video-title">LATEST RELEASE</div>
-  <div class="video-embed">
+  <div class="video-embed" id="featured-video-embed">
     <iframe src="https://www.youtube.com/embed/g8nf5ue90Ys" title="MoonkhidMusic — Sincere" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>
@@ -123,7 +123,7 @@
   <div class="videos-inner">
     <div class="section-label">All Videos</div>
     <div class="featured-video-title">WATCH MORE</div>
-    <div class="videos-grid">
+    <div class="videos-grid" id="videos-grid">
       <div class="video-card">
         <div class="video-thumb">
           <div class="video-thumb-ph">SINCERE</div>
@@ -195,5 +195,45 @@
   <div class="footer-copy">&copy; 2026 BLIZCITY &middot; MoonkhidMusic &middot; All rights reserved</div>
 </footer>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app = initializeApp({
+  apiKey: "AIzaSyAj_Q7_UJ_yTGegtkPJ3A1kFxdwig79ADI",
+  authDomain: "blizcity-music.firebaseapp.com",
+  projectId: "blizcity-music",
+  storageBucket: "blizcity-music.firebasestorage.app",
+  messagingSenderId: "271044409597",
+  appId: "1:271044409597:web:31cdad1e4a5cbde6a42694"
+});
+const db = getFirestore(app);
+async function loadVideos() {
+  const snap = await getDocs(query(collection(db,'videos'), orderBy('createdAt','desc'))).catch(() => ({docs:[]}));
+  if (snap.docs.length === 0) return;
+  const grid = document.getElementById('videos-grid');
+  const featured = document.getElementById('featured-video-embed');
+  if (!grid) return;
+  const first = snap.docs[0].data();
+  if (featured) featured.innerHTML = `<iframe src="https://www.youtube.com/embed/${first.youtubeId}" title="${first.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  let html = '';
+  snap.docs.forEach(d => {
+    const r = d.data();
+    html += `<div class="video-card">
+      <div class="video-thumb" onclick="window.open('https://youtube.com/watch?v=${r.youtubeId}','_blank')">
+        <img src="https://img.youtube.com/vi/${r.youtubeId}/hqdefault.jpg" alt="${r.title}" loading="lazy">
+        <div class="video-thumb-overlay"><div class="video-thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-label">${r.type} · ${r.year}</div>
+        <div class="video-title">${r.title}</div>
+        <div class="video-meta">MoonkhidMusic</div>
+        <a href="https://youtube.com/watch?v=${r.youtubeId}" target="_blank" class="video-link">Watch on YouTube →</a>
+      </div>
+    </div>`;
+  });
+  grid.innerHTML = html;
+}
+loadVideos();
+</script>
 </body>
 </html>
