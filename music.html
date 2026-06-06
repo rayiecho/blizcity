@@ -252,12 +252,13 @@ async function loadMusic() {
       <div class="release-art">${img}${i===0?'<span class="release-new">Latest</span>':''}</div>
       <div class="release-title">${r.title}</div>
       <div class="release-meta">${r.type} · ${r.year} · ${r.genre}</div>
-      <a href="${r.streamLink}" target="_blank" class="release-link">Stream Now →</a>
+      <a href="${r.streamLink}" target="_blank" class="release-link" onclick="event.preventDefault();openMusicModal('${r.title}','${r.artist}','${r.streamLink}','')">Play Now →</a>
     </div>`;
   });
   grid.innerHTML = html;
 }
 loadMusic();
 </script>
+<script src="player.js"></script>
 </body>
 </html>
