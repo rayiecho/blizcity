@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoonkhidMusic Store — merch, digital downloads and exclusive items.">
+  <title>MoonkhidMusic — Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0F0800;--bg2:#1A0F00;--bg3:#241500;--gold:#D4A84B;--gold2:#E8C97A;--brown:#3D2000;--cream:#F5ECD7;--gray:#8A7A60;--white:#FDFAF5;--border:rgba(212,168,75,0.15);--border2:rgba(212,168,75,0.08);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(15,8,0,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
+    .nav-logo{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--gold);text-decoration:none;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{color:rgba(245,236,215,0.75);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.5px;transition:color 0.3s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-stream{background:var(--gold);color:var(--bg);padding:0.55rem 1.5rem;border-radius:2px;font-size:0.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+    .nav-stream:hover{background:var(--gold2);}
+    .section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+    .section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+    .btn-primary{background:var(--gold);color:var(--bg);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;display:inline-block;border:none;cursor:pointer;font-family:inherit;}
+    .btn-primary:hover{background:var(--gold2);}
+    .btn-outline{border:1px solid rgba(245,236,215,0.3);color:var(--cream);padding:0.85rem 2rem;border-radius:2px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* PAGE HERO */
+    .page-hero{background:url('images/moonkhid-15.jpg') center center / cover no-repeat;padding:10rem 3rem 6rem;position:relative;border-bottom:1px solid var(--border2);}
+    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(15,8,0,0.75) 0%,rgba(15,8,0,0.45) 50%,rgba(15,8,0,0.15) 100%);}
+    .page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+    .page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,6rem);color:#FFFFFF;letter-spacing:2px;text-shadow:0 3px 25px rgba(0,0,0,0.8);}
+    .page-hero h1 span{color:var(--gold);}
+    .page-hero-sub{font-size:1.05rem;color:#FFFFFF;margin-top:1rem;max-width:500px;line-height:1.9;text-shadow:0 2px 15px rgba(0,0,0,0.9);font-weight:500;}
+
+    /* STORE NOTICE */
+    .store-notice{background:rgba(212,168,75,0.08);border:1px solid var(--border);padding:1.25rem 2rem;max-width:1200px;margin:3rem auto 0;border-radius:2px;display:flex;align-items:center;gap:1rem;font-size:0.88rem;color:var(--gold);}
+    .store-notice svg{width:20px;height:20px;fill:var(--gold);flex-shrink:0;}
+
+    /* MERCH */
+    .merch-section{padding:6rem 3rem;max-width:1200px;margin:0 auto;border-bottom:1px solid var(--border2);}
+    .section-title{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:1px;margin-top:0.75rem;margin-bottom:3rem;}
+    .merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+    .merch-card{background:var(--bg2);border:1px solid var(--border2);border-radius:4px;overflow:hidden;transition:border-color 0.3s;}
+    .merch-card:hover{border-color:var(--border);}
+    .merch-img{width:100%;aspect-ratio:1;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .merch-img img{width:100%;height:100%;object-fit:cover;}
+    .merch-img-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;}
+    .merch-img-ph svg{width:48px;height:48px;fill:rgba(212,168,75,0.2);}
+    .merch-img-ph span{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(212,168,75,0.3);font-weight:700;}
+    .merch-badge{position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--bg);padding:0.2rem 0.6rem;border-radius:2px;font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+    .merch-info{padding:1.5rem;}
+    .merch-category{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.4rem;}
+    .merch-name{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;}
+    .merch-desc{font-size:0.82rem;color:var(--gray);margin-bottom:1rem;line-height:1.6;}
+    .merch-footer{display:flex;align-items:center;justify-content:space-between;}
+    .merch-price{font-family:'Anton',sans-serif;font-size:1.2rem;color:var(--gold);letter-spacing:1px;}
+    .merch-price span{font-family:'Outfit',sans-serif;font-size:0.72rem;color:var(--gray);font-weight:400;letter-spacing:0;display:block;}
+    .btn-buy{background:var(--gold);color:var(--bg);padding:0.6rem 1.25rem;border-radius:2px;font-size:0.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer;font-family:inherit;}
+    .btn-buy:hover{background:var(--gold2);}
+    .btn-buy.coming{background:rgba(212,168,75,0.15);color:rgba(212,168,75,0.5);cursor:not-allowed;}
+
+    /* DIGITAL */
+    .digital-section{background:var(--bg2);padding:6rem 3rem;border-bottom:1px solid var(--border2);}
+    .digital-inner{max-width:1200px;margin:0 auto;}
+    .digital-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border2);margin-top:2.5rem;}
+    .digital-card{background:var(--bg2);padding:2.5rem;transition:background 0.3s;display:flex;align-items:center;gap:2rem;}
+    .digital-card:hover{background:var(--bg3);}
+    .digital-icon{width:64px;height:64px;background:rgba(212,168,75,0.08);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .digital-icon svg{width:28px;height:28px;fill:var(--gold);}
+    .digital-info{}
+    .digital-label{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.35rem;}
+    .digital-name{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;}
+    .digital-desc{font-size:0.82rem;color:var(--gray);margin-bottom:0.75rem;line-height:1.6;}
+    .digital-price{font-family:'Anton',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:1px;}
+
+    /* MPESA NOTE */
+    .mpesa-strip{background:var(--gold);padding:2rem 3rem;}
+    .mpesa-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+    .mpesa-text{color:var(--bg);}
+    .mpesa-title{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:1px;margin-bottom:0.25rem;}
+    .mpesa-sub{font-size:0.85rem;opacity:0.75;}
+    .mpesa-logos{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+    .mpesa-badge{background:rgba(15,8,0,0.15);padding:0.5rem 1.25rem;border-radius:2px;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--bg);text-transform:uppercase;}
+
+    /* COMING SOON */
+    .coming-section{padding:5rem 3rem;text-align:center;}
+    .coming-section h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:2px;margin-bottom:1rem;}
+    .coming-section p{color:rgba(245,236,215,0.55);max-width:500px;margin:0 auto 2rem;line-height:1.8;}
+    .notify-form{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto;}
+    .notify-input{flex:1;min-width:220px;background:var(--bg2);border:1px solid var(--border2);color:var(--cream);padding:0.85rem 1.25rem;border-radius:2px;font-family:inherit;font-size:0.92rem;outline:none;transition:border-color 0.2s;}
+    .notify-input:focus{border-color:var(--gold);}
+    .notify-input::placeholder{color:rgba(245,236,215,0.3);}
+
+    footer{background:var(--bg);padding:3rem;border-top:1px solid var(--border2);}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+    .footer-logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);}
+    .footer-links{display:flex;gap:2rem;flex-wrap:wrap;}
+    .footer-links a{font-size:0.82rem;color:rgba(245,236,215,0.45);text-decoration:none;transition:color 0.3s;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-copy{font-size:0.75rem;color:rgba(245,236,215,0.25);margin-top:1.5rem;text-align:center;max-width:1200px;margin-left:auto;margin-right:auto;padding-top:1.5rem;border-top:1px solid var(--border2);}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg);padding:0.85rem 2rem;border-radius:50px;font-size:0.88rem;font-weight:700;display:none;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+
+    @media(max-width:1024px){.merch-grid{grid-template-columns:1fr 1fr;}.digital-grid{grid-template-columns:1fr;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.merch-section,.digital-section,.coming-section{padding:4rem 1.5rem;}.merch-grid{grid-template-columns:1fr;}.mpesa-strip{padding:1.5rem;}.footer-inner{flex-direction:column;text-align:center;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">BLIZCITY</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="music.html">Music</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="events.html">Shows</a></li>
+    <li><a href="store.html" class="active">Store</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="nav-stream">Stream Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Official Merch</div>
+    <h1>THE<br><span>STORE</span></h1>
+    <p class="page-hero-sub">Official MoonkhidMusic merchandise, digital downloads and exclusive items.</p>
+  </div>
+</div>
+
+<div class="store-notice" style="padding:1.25rem 3rem;">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+  Store launching soon — sign up below to get early access and exclusive launch discounts.
+</div>
+
+<!-- MERCH -->
+<div class="merch-section">
+  <div class="section-label">Merchandise</div>
+  <div class="section-title">OFFICIAL MERCH</div>
+  <div class="merch-grid">
+    <div class="merch-card">
+      <div class="merch-img">
+        <div class="merch-img-ph">
+          <svg viewBox="0 0 24 24"><path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.86-.64 3.61-1.71 5H3c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h5.67C9.37 19.3 10.64 20 12 20s2.63-.7 3.33-1H21c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1h-3.29C16.64 12.61 16 10.86 16 9z"/></svg>
+          <span>T-Shirt</span>
+        </div>
+        <span class="merch-badge">Coming Soon</span>
+      </div>
+      <div class="merch-info">
+        <div class="merch-category">Clothing</div>
+        <div class="merch-name">Sincere T-Shirt</div>
+        <div class="merch-desc">Official MoonkhidMusic Sincere debut single tee. Premium cotton, limited edition.</div>
+        <div class="merch-footer">
+          <div class="merch-price">₦15,000 <span>~$10 USD</span></div>
+          <button class="btn-buy coming" onclick="showToast('Coming soon — sign up to be notified!')">Coming Soon</button>
+        </div>
+      </div>
+    </div>
+    <div class="merch-card">
+      <div class="merch-img">
+        <div class="merch-img-ph">
+          <svg viewBox="0 0 24 24"><path d="M12 3C8.13 3 5 6.13 5 10c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Hoodie</span>
+        </div>
+        <span class="merch-badge">Coming Soon</span>
+      </div>
+      <div class="merch-info">
+        <div class="merch-category">Clothing</div>
+        <div class="merch-name">BLIZCITY Hoodie</div>
+        <div class="merch-desc">Official BLIZCITY label hoodie. Heavyweight fleece, embroidered logo, limited run.</div>
+        <div class="merch-footer">
+          <div class="merch-price">₦25,000 <span>~$16 USD</span></div>
+          <button class="btn-buy coming" onclick="showToast('Coming soon — sign up to be notified!')">Coming Soon</button>
+        </div>
+      </div>
+    </div>
+    <div class="merch-card">
+      <div class="merch-img">
+        <img src="images/poster.jpg" alt="Official Poster">
+      </div>
+      <div class="merch-info">
+        <div class="merch-category">Print</div>
+        <div class="merch-name">Sincere Official Poster</div>
+        <div class="merch-desc">A3 high-quality print of the official Sincere promo poster. Signed edition available.</div>
+        <div class="merch-footer">
+          <div class="merch-price">₦5,000 <span>~$3 USD</span></div>
+          <button class="btn-buy coming" onclick="showToast('Coming soon — sign up to be notified!')">Coming Soon</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIGITAL DOWNLOADS -->
+<div class="digital-section">
+  <div class="digital-inner">
+    <div class="section-label">Digital</div>
+    <div class="section-title">DIGITAL DOWNLOADS</div>
+    <div class="digital-grid">
+      <div class="digital-card">
+        <div class="digital-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="digital-info">
+          <div class="digital-label">Single &middot; High Quality</div>
+          <div class="digital-name">Sincere — MP3 Download</div>
+          <div class="digital-desc">High quality 320kbps MP3 download of the debut single Sincere.</div>
+          <div class="digital-price">Free <span style="font-family:'Outfit',sans-serif;font-size:0.75rem;color:var(--gray);font-weight:400;">on all platforms</span></div>
+          <a href="https://distrokid.com/hyperfollow/moonkhidmusic/sincere" target="_blank" class="btn-primary" style="margin-top:0.75rem;font-size:0.78rem;padding:0.6rem 1.25rem;">Stream / Download &rarr;</a>
+        </div>
+      </div>
+      <div class="digital-card">
+        <div class="digital-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <div class="digital-info">
+          <div class="digital-label">Press Kit &middot; Media</div>
+          <div class="digital-name">EPK — Electronic Press Kit</div>
+          <div class="digital-desc">Full press kit including artist bio, high resolution photos, streaming links and contact details for media use.</div>
+          <div class="digital-price">Free <span style="font-family:'Outfit',sans-serif;font-size:0.75rem;color:var(--gray);font-weight:400;">for media & press</span></div>
+          <a href="contact.html" class="btn-outline" style="margin-top:0.75rem;font-size:0.78rem;padding:0.6rem 1.25rem;">Request EPK &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MPESA STRIP -->
+<div class="mpesa-strip">
+  <div class="mpesa-inner">
+    <div class="mpesa-text">
+      <div class="mpesa-title">PAY WITH AFRICAN MONEY</div>
+      <div class="mpesa-sub">All prices in Naira. M-Pesa, Flutterwave and bank transfer accepted.</div>
+    </div>
+    <div class="mpesa-logos">
+      <span class="mpesa-badge">M-Pesa</span>
+      <span class="mpesa-badge">Flutterwave</span>
+      <span class="mpesa-badge">Bank Transfer</span>
+    </div>
+  </div>
+</div>
+
+<!-- COMING SOON NOTIFY -->
+<div class="coming-section">
+  <h2>STORE LAUNCHING SOON</h2>
+  <p>Be the first to shop when the store goes live — get early access and exclusive launch discounts.</p>
+  <form class="notify-form" action="https://formspree.io/f/mpqbojqv" method="POST" onsubmit="handleNotify(event)">
+    <input type="email" name="email" class="notify-input" placeholder="your@email.com" required>
+    <button type="submit" class="btn-primary" id="notifyBtn">Get Early Access</button>
+  </form>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">BLIZCITY</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="music.html">Music</a>
+      <a href="videos.html">Videos</a>
+      <a href="events.html">Shows</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 BLIZCITY &middot; MoonkhidMusic &middot; All rights reserved</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+}
+function handleNotify(e) {
+  e.preventDefault();
+  const btn = document.getElementById('notifyBtn');
+  fetch(e.target.action, {
+    method: 'POST',
+    body: new FormData(e.target),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      btn.textContent = 'Done!';
+      btn.style.background = '#27AE60';
+      e.target.reset();
+      setTimeout(() => { btn.textContent = 'Get Early Access'; btn.style.background = ''; }, 3000);
+    }
+  });
+}
+</script>
+
+</body>
+</html>
